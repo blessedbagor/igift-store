@@ -4,7 +4,8 @@ import Link from "next/link";
 import { 
     AlignJustify, 
     ShoppingBag, 
-    UserIcon 
+    UserIcon,
+    ArrowUpRight
 } from "lucide-react";
 import { 
     Sheet, 
@@ -20,12 +21,20 @@ const Menu = () => {
         <ModeToggle />
             <Button asChild variant='ghost'>
                 <Link href='/cart'>
-                    <ShoppingBag /> Cart
+                    <ShoppingBag />
+                </Link>
+            </Button>
+            <Button asChild variant='ghost'>
+                <Link href='/sign-in'>
+                    <UserIcon />
                 </Link>
             </Button>
             <Button asChild>
-                <Link href='/sign-in'>
-                    <UserIcon /> Sign In
+                <Link 
+                href='https://igiftmit.com/' 
+                target='_blank'
+                rel='noopener noreferrer'>
+                DISTRIBUTOR&apos;S LOGIN<ArrowUpRight />
                 </Link>
             </Button>
         </nav>
@@ -42,9 +51,17 @@ const Menu = () => {
                     <ShoppingBag /> Cart
                     </Link>
                 </Button>
-                <Button asChild>
+                <Button asChild variant='ghost'>
                 <Link href='/sign-in'>
                     <UserIcon /> Sign In
+                </Link>
+            </Button>
+            <Button asChild>
+                <Link 
+                href='https://igiftmit.com/' 
+                target='_blank'
+                rel='noopener noreferrer'>
+                 DISTRIBUTOR&apos;S LOGIN<ArrowUpRight />
                 </Link>
             </Button>
             <SheetDescription></SheetDescription>
