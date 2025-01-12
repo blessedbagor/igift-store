@@ -9,7 +9,7 @@ const sampleData = {
         '/images/sample-products/p1-1.png',
         '/images/sample-products/p1-2.png',
       ],
-      price: 10,
+      price: 12,
       brand: 'Affiliate',
       rating: 4.5,
       numReviews: 20,
