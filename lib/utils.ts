@@ -18,6 +18,13 @@ export function convertToPlainObject<T>(value: T): T {
 // }
 
 export function formatNumberWithDecimal(num: number): string {
-  const [int, decimal] = num.toString().split('.'); // Destructure the split parts
-  return decimal ? `${int}.${decimal.padEnd(2, '0')}` : `${int}.00`; // Ensure decimal has at least 2 digits
+  const [int, decimal = ''] = num.toString().split('.');
+
+  // Format the integer part with thousands separators
+  const formattedInt = parseInt(int, 10).toLocaleString();
+
+  // Ensure the decimal part has exactly two digits
+  const formattedDecimal = decimal.padEnd(2, '0').slice(0, 2);
+
+  return `${formattedInt}.${formattedDecimal}`;
 }
