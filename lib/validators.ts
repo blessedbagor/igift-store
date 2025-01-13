@@ -18,5 +18,6 @@ export const insertProductSchema = z.object({
     images: z.array(z.string()).min(1, 'Product must have at least one image'),
     isFeatured: z.boolean(),
     banner: z.string().nullable(),
+    rating: z.coerce.number(),
     price: currency,
 });

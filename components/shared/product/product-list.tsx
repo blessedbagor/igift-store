@@ -24,7 +24,7 @@ const ProductList = ({
         
         : (
             <div>
-            <p>No packages found</p>
+            <p>No product or package found</p>
             </div>
         )}
     </div> );
