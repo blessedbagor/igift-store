@@ -1,4 +1,20 @@
+import {hashSync} from 'bcrypt-ts-edge';
+
 const sampleData = {
+  users: [
+    {
+      name: 'Blessed',
+      email: 'blessed@igift.com.ph',
+      password: hashSync('QQ11aa22zz33', 10),
+      role: 'admin',
+    },
+    {
+      name: 'Sidong',
+      email: 'sidongbagor@gmail.com',
+      password: hashSync('QQ11aa22zz33', 10),
+      role: 'user',
+    }
+  ],
   products: [
     {
       name: 'Affiliate Package',
