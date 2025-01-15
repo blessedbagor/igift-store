@@ -4,7 +4,6 @@ import Link from "next/link";
 import { 
     AlignJustify, 
     ShoppingBag, 
-    UserIcon,
     ArrowUpRight
 } from "lucide-react";
 import { 
@@ -14,6 +13,7 @@ import {
     SheetTitle, 
     SheetTrigger 
 } from "@/components/ui/sheet";
+import UserButton from "./user-button";
 
 const Menu = () => {
     return <div className="flex justify-end gap-3">
@@ -24,11 +24,7 @@ const Menu = () => {
                     <ShoppingBag />
                 </Link>
             </Button>
-            <Button asChild variant='ghost'>
-                <Link href='/sign-in'>
-                    <UserIcon />
-                </Link>
-            </Button>
+            <UserButton/>
             <Button asChild>
                 <Link 
                 href='https://igiftmit.com/' 
@@ -51,11 +47,7 @@ const Menu = () => {
                     <ShoppingBag /> Cart
                     </Link>
                 </Button>
-                <Button asChild variant='ghost'>
-                <Link href='/sign-in'>
-                    <UserIcon /> Sign In
-                </Link>
-            </Button>
+                <UserButton />
             <Button asChild>
                 <Link 
                 href='https://igiftmit.com/' 

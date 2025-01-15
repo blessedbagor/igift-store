@@ -3,16 +3,16 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signInDefaultValues } from "@/lib/constants";
-import { AtSign, Key } from "lucide-react";
+import { signUpDefaultValues } from "@/lib/constants";
+import { AtSign, Key, ShieldCheck, UserRound } from "lucide-react";
 import Link from "next/link";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { signInWithCredentials } from "@/lib/actions/user.actions";
+import { signUpUser } from "@/lib/actions/user.actions";
 import {useSearchParams} from 'next/navigation';
 
-const CredentialsSignInForm = () => {
-    const [data, action] = useActionState(signInWithCredentials, {
+const SignUpForm = () => {
+    const [data, action] = useActionState(signUpUser, {
         success: false,
         message: ''
     });
@@ -20,12 +20,12 @@ const CredentialsSignInForm = () => {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get('callbackUrl') || '/';
 
-    const SignInButton = () => {
+    const SignUpButton = () => {
         const {pending} = useFormStatus();
 
     return (
         <Button disabled={pending} className="w-full" variant="default">
-            {pending ? 'Signing In...' : 'Sign In'}
+            {pending ? 'Submitting...' : 'Sign Up'}
         </Button>
     )
 }
@@ -33,6 +33,21 @@ const CredentialsSignInForm = () => {
         <form action={action}>
             <input type="hidden" name="callbackUrl" value={callbackUrl} />
             <div className="space-y-6">
+            <div>
+                    <Label htmlFor="name">Full Name</Label>
+                    <div className="relative">
+                        <UserRound className="absolute top-1/2 left-3 -translate-y-1/2 text-yellow-500 h-[18px] w-[18px]" />
+                        <Input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            autoComplete="name"
+                            defaultValue={signUpDefaultValues.name}
+                            className="pl-10" // Adjust padding for the icon
+                        />
+                    </div>
+                </div>
                 <div>
                     <Label htmlFor="email">Email</Label>
                     <div className="relative">
@@ -43,7 +58,7 @@ const CredentialsSignInForm = () => {
                             type="email"
                             required
                             autoComplete="email"
-                            defaultValue={signInDefaultValues.email}
+                            defaultValue={signUpDefaultValues.email}
                             className="pl-10" // Adjust padding for the icon
                         />
                     </div>
@@ -58,13 +73,28 @@ const CredentialsSignInForm = () => {
                             type="password"
                             required
                             autoComplete="password"
-                            defaultValue={signInDefaultValues.password}
+                            defaultValue={signUpDefaultValues.password}
                             className="pl-10" // Adjust padding for the icon
                         />
                     </div>
                 </div>
                 <div>
-                    <SignInButton />
+                    <Label htmlFor="confirmPassword">Confirm Password</Label>
+                    <div className="relative">
+                        <ShieldCheck className="absolute top-1/2 left-3 -translate-y-1/2 text-yellow-500 h-[18px] w-[18px]"/>
+                        <Input
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            type="password"
+                            required
+                            autoComplete="confirmPassword"
+                            defaultValue={signUpDefaultValues.confirmPassword}
+                            className="pl-10" // Adjust padding for the icon
+                        />
+                    </div>
+                </div>
+                <div>
+                    <SignUpButton />
 
                     {data && !data.success && (
                         <div className="text-center text-destructive p-2">
@@ -75,9 +105,9 @@ const CredentialsSignInForm = () => {
 
                 </div>
                 <div className="text-sm text-center text-muted-foreground">
-                    Don&apos;t have an account? {''}
-                    <Link href="/sign-up/" target="_self" className="link">
-                        Sign Up
+                    Already have an account? {''}
+                    <Link href="/sign-in/" target="_self" className="link text-yellow-500">
+                        Sign In
                     </Link>
                 </div>
             </div>
@@ -85,4 +115,4 @@ const CredentialsSignInForm = () => {
     );
 };
 
-export default CredentialsSignInForm;
+export default SignUpForm;
