@@ -41,7 +41,6 @@ const SignUpForm = () => {
                             id="name"
                             name="name"
                             type="text"
-                            required
                             autoComplete="name"
                             defaultValue={signUpDefaultValues.name}
                             className="pl-10" // Adjust padding for the icon
@@ -56,7 +55,6 @@ const SignUpForm = () => {
                             id="email"
                             name="email"
                             type="email"
-                            required
                             autoComplete="email"
                             defaultValue={signUpDefaultValues.email}
                             className="pl-10" // Adjust padding for the icon
@@ -71,7 +69,6 @@ const SignUpForm = () => {
                             id="password"
                             name="password"
                             type="password"
-                            required
                             autoComplete="password"
                             defaultValue={signUpDefaultValues.password}
                             className="pl-10" // Adjust padding for the icon
@@ -86,7 +83,6 @@ const SignUpForm = () => {
                             id="confirmPassword"
                             name="confirmPassword"
                             type="password"
-                            required
                             autoComplete="confirmPassword"
                             defaultValue={signUpDefaultValues.confirmPassword}
                             className="pl-10" // Adjust padding for the icon
