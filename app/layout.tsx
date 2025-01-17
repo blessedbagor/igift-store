@@ -3,6 +3,7 @@ import {Outfit} from 'next/font/google';
 import '@/assets/styles/global.css';
 import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/toaster";
 
 const outfit = Outfit({subsets: ['latin']});
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         disableTransitionOnChange
         >
         {children}
+        <Toaster />
         </ThemeProvider>
         
         </body>
