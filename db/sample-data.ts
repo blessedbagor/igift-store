@@ -1,19 +1,16 @@
-import { hash } from "@/lib/encrypt";
-
 // Function to create sample data
-const createSampleData = async () => {
-  return {
+const createSampleData =  {
     users: [
       {
         name: "Blessed",
         email: "blessed@igift.com.ph",
-        password: await hash("QQ11aa22zz33"),
+        password: "QQ11aa22zz33",
         role: "admin",
       },
       {
         name: "Sidong",
         email: "sidongbagor@gmail.com",
-        password: await hash("QQ11aa22zz33"),
+        password: "QQ11aa22zz33",
         role: "user",
       },
     ],
@@ -104,7 +101,6 @@ const createSampleData = async () => {
       },
     ],
   };
-};
 
 // Export the function
 export default createSampleData;
