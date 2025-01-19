@@ -1,16 +1,17 @@
 // Function to create sample data
+import { hashSync } from "bcrypt-ts-edge";
 const createSampleData =  {
     users: [
       {
         name: "Blessed",
         email: "blessed@igift.com.ph",
-        password: "QQ11aa22zz33",
+        password: hashSync("QQ11aa22zz33", 10),
         role: "admin",
       },
       {
         name: "Sidong",
         email: "sidongbagor@gmail.com",
-        password: "QQ11aa22zz33",
+        password: hashSync("QQ11aa22zz33", 10),
         role: "user",
       },
     ],

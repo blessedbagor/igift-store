@@ -14,10 +14,8 @@ import {
     SheetTrigger 
 } from "@/components/ui/sheet";
 import UserButton from "./user-button";
-// import { getMyCart } from "@/lib/actions/cart.actions";
 
 const Menu = () => {
-    // const cart = getMyCart();
 
     return <div className="flex justify-end gap-3">
         <nav className="hidden md:flex w-full max-w xs gap-1">
@@ -27,16 +25,6 @@ const Menu = () => {
                     <ShoppingBag /> 
                 </Link>
             </Button>
-            {/* <Button asChild variant="ghost">
-                <Link href="/cart" className="relative">
-                <ShoppingBag />
-                     <span
-                        className="absolute -top-2 -right-2 bg-yellow-700 text-white text-xs font-bold rounded-full px-2 py-0.5"
-                         >
-                        {cart.reduce((a,c) => a + c.qty, 0)}
-                    </span>
-                </Link>
-            </Button> */}
 
             <UserButton/>
             <Button asChild>

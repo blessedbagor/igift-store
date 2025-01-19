@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import {PrismaAdapter} from '@auth/prisma-adapter';
 import {prisma} from '@/db/prisma'
 import CredentialsProvider from "next-auth/providers/credentials";
-import { compare } from './lib/encrypt';
+import { compareSync } from 'bcrypt-ts-edge';
 import type { NextAuthConfig } from 'next-auth';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
@@ -36,7 +36,7 @@ export const config = {
                 
                 //Check if the user exists and if the password matches
                 if(user && user.password) {
-                    const isMatch = await compare(
+                    const isMatch = compareSync(
                         credentials.password as string,
                         user.password
                       );
@@ -74,9 +74,10 @@ export const config = {
             return session
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          async jwt({token, user}: any) {
+          async jwt({token, user, trigger}: any) {
             // Assign user fields to token
             if (user) {
+                token.id = user.id;
                 token.role = user.role;
             
                 // If user has no name then use the email
@@ -91,11 +92,51 @@ export const config = {
                     })
                 }
 
+
+                if (trigger === 'signIn' || trigger === 'signUp') {
+                  const cookiesObject = await cookies();
+                  const sessionCartId = cookiesObject.get('sessionCartId')?.value;
+
+                  if (sessionCartId) {
+                    const sessionCart = await prisma.cart.findFirst({
+                        where: {sessionCartId}
+                    });
+                    if (sessionCart) {
+                        //Delete current user cart
+                        await prisma.cart.deleteMany({
+                            where: {userId: user.id},
+                        });
+
+                        //Assign new cart
+                        await prisma.cart.update({
+                            where: {id: sessionCart.id},
+                            data: {userId: user.id}
+                        })
+                    }
+                  }
+                }
             }
             return token;
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          authorized({request}: any) {
+          authorized({ request, auth }: any) {
+            // Array of regex patterns of protected paths
+            const protectedPaths = [
+              /\/shipping-address/,
+              /\/payment-method/,
+              /\/place-order/,
+              /\/profile/,
+              /\/user\/(.*)/,
+              /\/order\/(.*)/,
+              /\/admin/,
+            ];
+          
+            // Get pathname from the req URL object
+            const { pathname } = request.nextUrl;
+          
+            // Check if user is not authenticated and on a protected path
+            if (!auth && protectedPaths.some((p) => p.test(pathname))) return false;
+
             // Check for session cart cookie
             if (!request.cookies.get('sessionCartId')) {
                 //Generate new session cart id cookie

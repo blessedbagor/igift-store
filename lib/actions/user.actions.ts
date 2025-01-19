@@ -1,11 +1,12 @@
 'use server';
 
-import {signInFormSchema, signUpFormSchema} from '@/lib/validators';
-import {signIn, signOut} from '@/auth';
+import {shippingAddressSchema, signInFormSchema, signUpFormSchema} from '@/lib/validators';
+import {auth, signIn, signOut} from '@/auth';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
-import { hash } from '../encrypt';
+import {hashSync} from "bcrypt-ts-edge";
 import { prisma } from '@/db/prisma';
 import { formatError } from '@/lib/utils';
+import { ShippingAddress } from '@/types';
 
 // Sign in the user with credentials
 export async function signInWithCredentials(prevState: unknown, 
@@ -48,7 +49,7 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
         }
 
         const plainPassword = user.password;
-        user.password = await hash(user.password);
+        user.password = hashSync(user.password);
 
         await prisma.user.create({
             data: {
@@ -69,5 +70,46 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
             throw error;
         }
         return { success: false, message: formatError(error) };
+    }
+}
+
+//Get user by the ID
+export async function getUserById(userId: string) {
+    const user = await prisma.user.findFirst({
+        where: {id: userId}
+    });
+    if(!user) throw new Error("User not found");
+    return user;
+}
+
+//Update the user's address
+export  async function updateUserAddress (data: ShippingAddress) {
+
+    try {
+        const session = await auth();
+
+
+        const currentUser = await prisma.user.findFirst({
+            where: {id: session?.user?.id}
+        });
+
+        if(!currentUser) throw new Error ('User not found');
+
+        const address = shippingAddressSchema.parse(data);
+
+        //Update address to the database
+
+        await prisma.user.update({
+            where: {id: currentUser.id},
+            data: {address}
+        });
+        
+        return {
+            success: true,
+            message: 'User updated successfully'
+        }
+
+    } catch (error) {
+        return { success: false, message: formatError(error)}
     }
 }
