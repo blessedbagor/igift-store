@@ -12,6 +12,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { formatCurrency } from "@/lib/utils";
+import PlaceOrderForm from "./place-order-form";
 
 export const metadata: Metadata = {
     title: 'Place Order',
@@ -106,10 +107,6 @@ const PlaceOrderPage = async () => {
                             <div>Items</div>
                             <div>{formatCurrency(cart.itemsPrice)}</div>
                         </div>
-                        {/* <div className="flex justify-between">
-                            <div>Tax (inc.)</div>
-                            <div className="text-destructive">({formatCurrency(cart.taxPrice)})</div>
-                        </div> */}
                         <div className="flex justify-between">
                             <div>Shipping</div>
                             <div>{formatCurrency(cart.shippingPrice)}</div>
@@ -119,6 +116,7 @@ const PlaceOrderPage = async () => {
                             <div>{formatCurrency(cart.totalPrice)}</div>
                         </div>
                     </CardContent>
+                    <PlaceOrderForm />
                 </Card>
             </div>
         </div>
