@@ -16,9 +16,9 @@ const UserButton = async () => {
 
     if (!session) {
         return (
-            <Button asChild variant='ghost'>
+            <Button asChild className='ml-2' variant='outline'>
                 <Link href='/sign-in'>
-                <UserIcon />
+                <UserIcon size={64} /> Sign In
                 </Link>
             </Button>
         )

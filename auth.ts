@@ -126,7 +126,7 @@ export const config = {
               /\/payment-method/,
               /\/place-order/,
               /\/profile/,
-              /\/user\/(.*)/,
+              /\/my-account\/(.*)/,
               /\/order\/(.*)/,
               /\/admin/,
             ];

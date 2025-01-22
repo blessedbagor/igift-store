@@ -84,12 +84,12 @@ const OrderDetailsTable = ({order} : {order: Order}) => {
                 </CardContent>
             </Card>
         </div>
-        <div>
+        <div className="mt-4 w-full">
         <Card>
             <CardContent className="p-4 gap-4 space-y-4">
                 <h2 className="text-2xl pb-4">Order Details</h2>
             <div className="flex justify-between">
-                <div>Items</div>
+                <div>Subtotal</div>
              <div>{formatCurrency(itemsPrice)}</div>
             </div>
             <div className="flex justify-between">

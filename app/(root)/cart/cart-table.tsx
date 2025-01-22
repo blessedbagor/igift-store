@@ -1,9 +1,10 @@
 'use client';
+
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { useTransition } from "react";
 import { addItemToCart, removeItemFromCart } from "@/lib/actions/cart.actions";
-import { ArrowRight, Loader, Minus, Plus } from "lucide-react";
+import { ArrowRight, Frown, Loader, Minus, Plus } from "lucide-react";
 import {Cart} from "@/types";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -31,8 +32,15 @@ const CartTable = ({cart}: {cart?: Cart}) => {
         <>
             <h1 className="py-4 h2-bold">Cart</h1>
             {!cart || cart.items.length === 0 ? (
-                <div>
-                    Cart is empty. <Link href="/">Go Shopping</Link>
+                <div className="flex h-full flex-col items-center justify-center gap-2">
+                    <Frown size={128} strokeWidth={1.25} className=" text-gray-400" />
+                    <h2 className="text-xl font-semibold">Cart is empty</h2>
+                    <Link
+                    href="/"
+                    className="mt-4 rounded-md bg-yellow-500 px-4 py-2 text-sm text-white transition-colors hover:bg-yellow-400"
+                    >
+                        Go Shopping
+                    </Link>
                 </div>
             ) : (
              <div className="grid md:grid-cols-4 md:gap-5">

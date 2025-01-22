@@ -1,10 +1,6 @@
-import { Button } from "@/components/ui/button";
 import ModeToggle from "./mode-toggle";
-import Link from "next/link";
 import { 
-    AlignJustify, 
-    ShoppingBag, 
-    ArrowUpRight
+    AlignJustify
 } from "lucide-react";
 import { 
     Sheet, 
@@ -14,27 +10,17 @@ import {
     SheetTrigger 
 } from "@/components/ui/sheet";
 import UserButton from "./user-button";
+import CartCount from "./cart-count";
+import { getMyCart } from "@/lib/actions/cart.actions";
 
-const Menu = () => {
+const Menu = async () => {
+    const cart = await getMyCart();
 
     return <div className="flex justify-end gap-3">
         <nav className="hidden md:flex w-full max-w xs gap-1">
         <ModeToggle />
-            <Button asChild variant='ghost'>
-                <Link href='/cart'>
-                    <ShoppingBag /> 
-                </Link>
-            </Button>
-
-            <UserButton/>
-            <Button asChild>
-                <Link 
-                href='https://igiftmit.com/' 
-                target='_blank'
-                rel='noopener noreferrer'>
-                DISTRIBUTOR&apos;S LOGIN<ArrowUpRight />
-                </Link>
-            </Button>
+        <CartCount cart={cart} />
+        <UserButton/>
         </nav>
         <nav className="md:hidden">
         <Sheet>
@@ -44,20 +30,8 @@ const Menu = () => {
             <SheetContent className='flex flex-col items-start'>
             <SheetTitle>Menu</SheetTitle>
                 <ModeToggle />
-                <Button asChild variant='ghost'>
-                    <Link href='/cart'>
-                    <ShoppingBag /> Cart
-                    </Link>
-                </Button>
+                <CartCount cart={cart} />
                 <UserButton />
-            <Button asChild>
-                <Link 
-                href='https://igiftmit.com/' 
-                target='_blank'
-                rel='noopener noreferrer'>
-                 DISTRIBUTOR&apos;S LOGIN<ArrowUpRight />
-                </Link>
-            </Button>
             <SheetDescription></SheetDescription>
             </SheetContent>
         </Sheet>
