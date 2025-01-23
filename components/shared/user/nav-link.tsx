@@ -2,8 +2,7 @@
 
 import clsx from "clsx";
 import { 
-    ShoppingBag, 
-    Paperclip, 
+    Box, 
     UserIcon, 
     Stethoscope, 
     Network,
@@ -14,19 +13,14 @@ import { usePathname } from "next/navigation";
 
 const links = [
     { 
-        name: 'Profile', 
-        href: '/my-account/profile', 
+        name: 'My Account', 
+        href: '/my-account', 
         icon: UserIcon 
-    },
-    { 
-        name: 'Cart', 
-        href: '/my-account/cart', 
-        icon: ShoppingBag 
     },
     {
       name: 'Orders',
       href: '/my-account/orders',
-      icon: Paperclip,
+      icon: Box,
     },
     { 
         name: 'Care', 
