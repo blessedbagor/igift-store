@@ -58,7 +58,7 @@ const UserButton = async () => {
 
                 <DropdownMenuItem>
                     <Link href='/my-account/orders' className='w-full'>
-                    My Orders
+                    Orders
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="p-0 mb-1">

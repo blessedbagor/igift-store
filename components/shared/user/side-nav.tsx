@@ -28,7 +28,7 @@ const SideNav = async () => {
                 width={45}
                 priority={true}
             />
-            <h2 className="text-xl text-white dark:text-gray-200">DASHBOARD</h2>
+            <h2 className="text-xl text-white dark:text-gray-200">MY ACCOUNT</h2>
         </div>
 
         </Link>

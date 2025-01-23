@@ -85,7 +85,7 @@ export async function createOrder() {
         return {
             success: true,
             message: 'Order created', 
-            redirectTo: `/order/${insertedOrderId}`
+            redirectTo: `/my-account/order/${insertedOrderId}`
         }
 
     } catch (error) {
