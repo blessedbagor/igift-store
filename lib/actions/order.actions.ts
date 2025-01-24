@@ -7,8 +7,10 @@ import { getMyCart } from "./cart.actions";
 import { getUserById } from "./user.actions";
 import { insertOrderSchema } from "../validators";
 import { prisma } from "@/db/prisma";
-import { CartItem } from "@/types";
+import { CartItem, PaymentResult } from "@/types";
 import { PAGE_SIZE } from "../constants";
+import { Prisma } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 //Create order and create the order item
 export async function createOrder() {
@@ -96,7 +98,6 @@ export async function createOrder() {
 }
 
 // Get Order by id
-
 export async function getOrderById(orderId: string) {
     const data = await prisma.order.findFirst({
         where: {
@@ -139,3 +140,152 @@ export async function getMyOrders({
         totalPages: Math.ceil(dataCount / limit),
     };
 }
+
+type SalesDataType = {
+    month: string;
+    totalSales: number;
+}[];
+
+//Get Sales Data and order summary
+export async function getOrderSummary() {
+    //Get count for each resource
+    const ordersCount = await prisma.order.count();
+    const productsCount = await prisma.product.count();
+    const usersCount = await prisma.user.count();
+    //Calculate the total sales
+    const totalSales = await prisma.order.aggregate({
+        _sum: {totalPrice: true}
+    });
+    //Get monthly sales
+    const salesDataRaw = await prisma.$queryRaw<Array<{month: string; totalSales: Prisma.Decimal}
+    >>`SELECT to_char("createdAt", 'MM/YY') as "month", sum("totalPrice") as "totalSales" FROM 
+    "Order" GROUP BY to_char("createdAt", 'MM/YY')`;
+
+    const salesData:SalesDataType = salesDataRaw.map((entry) => ({
+        month: entry.month,
+        totalSales: Number(entry.totalSales),
+    }));
+
+    //Get the latest orders
+    const latestSales = await prisma.order.findMany({
+        orderBy: {createdAt: 'desc'},
+        include: {
+            user: {select: {name: true}},
+        },
+        take: 6,
+    });
+
+    return {
+        ordersCount,
+        productsCount,
+        usersCount,
+        totalSales,
+        salesData,
+        latestSales
+    };
+}
+
+//Get all the Orders
+export async function getAllOrders({
+    limit = PAGE_SIZE,
+    page
+}: {
+    limit?: number;
+    page: number;
+}) {
+    const data = await prisma.order.findMany({
+        orderBy: {createdAt: 'desc'},
+        take: limit,
+        skip: (page - 1) * limit,
+        include: {user: {select: {name: true}}},
+    });
+
+    const dataCount = await prisma.order.count();
+
+    return {
+        data,
+        totalPages: Math.ceil(dataCount / limit),
+    };
+}
+
+// Delete an order
+
+export async function deleteOrder(id: string) {
+    try {
+        await prisma.order.delete({
+            where: {id}
+        });
+
+        revalidatePath('/admin/orders');
+
+        return {
+            success: true,
+            message: 'Order deleted successfully',
+        }
+    } catch (error) {
+        return {success: false, message: formatError(error)}
+        
+    }
+}
+
+// Update order to paid
+export async function updateOrderToPaid({
+    orderId,
+    paymentResult,
+  }: {
+    orderId: string;
+    paymentResult?: PaymentResult;
+  }) {
+    // Get order from database
+    const order = await prisma.order.findFirst({
+      where: {
+        id: orderId,
+      },
+      include: {
+        orderitems: true,
+      },
+    });
+  
+    if (!order) throw new Error('Order not found');
+  
+    if (order.isPaid) throw new Error('Order is already paid');
+  
+    // Transaction to update order and account for product stock
+    await prisma.$transaction(async (tx) => {
+      // Iterate over products and update stock
+      for (const item of order.orderitems) {
+        await tx.product.update({
+          where: { id: item.productId },
+          data: { stock: { increment: -item.qty } },
+        });
+      }
+  
+      // Set the order to paid
+      await tx.order.update({
+        where: { id: orderId },
+        data: {
+          isPaid: true,
+          paidAt: new Date(),
+          paymentResult,
+        },
+      });
+    });
+  }
+
+// Update COD order to paid
+export async function updateOrderToPaidCOD(orderId: string) {
+    try {
+        await updateOrderToPaid({ orderId });
+  
+      revalidatePath(`/admin/order/${orderId}`);
+  
+      return { 
+        success: true, 
+        message: 'Order marked as paid' 
+    };
+    } catch (error) {
+      return { success: false, message: formatError(error) };
+    }
+}
+
+//Update COD Order to Delivered

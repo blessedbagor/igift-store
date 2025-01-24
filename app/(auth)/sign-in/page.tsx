@@ -22,8 +22,13 @@ const SignInPage = async (props: {
     const session = await auth();
 
     if (session) {
-        return redirect(callbackUrl || '/my-account');
+        if (session.user.role === 'admin') {
+            return redirect(callbackUrl || '/admin');
+        } else if (session.user.role === 'user') {
+            return redirect(callbackUrl || '/my-account');
+        }
     }
+    
 
     return <div className="w-full max-w-md mx-auto">
         <Card>

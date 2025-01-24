@@ -52,7 +52,7 @@ const PlaceOrderPage = async () => {
                             
                         </p>
                         <Link href='/shipping-address'>
-                        <Button variant="ghost" className="text-yellow-500">
+                        <Button variant="ghost" className="hover:text-yellow-500 hover:bg-transparent">
                             <PencilIcon />Edit
                         </Button>
                         </Link>
@@ -63,7 +63,7 @@ const PlaceOrderPage = async () => {
                         <h2 className="text-xl pb-4">Payment Method</h2>
                         <p>{user.paymentMethod}</p>
                         <Link href='/payment-method'>
-                        <Button variant="ghost" className="text-yellow-500">
+                        <Button variant="ghost" className="hover:text-yellow-500 hover:bg-transparent">
                             <PencilIcon />Edit
                         </Button>
                         </Link>

@@ -5,7 +5,7 @@ import { APP_NAME } from "@/lib/constants";
 import { signOutUser } from "@/lib/actions/user.actions";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import NavLink from "@/components/shared/user/nav-link";
+import NavLink from "@/components/shared/admin/nav-link";
 
 const SideNav = async () => {
     const session = await auth();
@@ -28,7 +28,7 @@ const SideNav = async () => {
                 width={45}
                 priority={true}
             />
-            <h2 className="text-xl text-white dark:text-gray-200">MY ACCOUNT</h2>
+            <h2 className="text-xl text-white dark:text-gray-200">ADMIN</h2>
         </div>
 
         </Link>
