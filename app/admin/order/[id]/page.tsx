@@ -21,7 +21,7 @@ const AdminOrderDetailsPage = async (props: {
     const session = await auth();
     
             if (session?.user?.role !== 'admin') {
-                    return redirect('/login');
+                    return redirect('/my-account');
                 }
 
     const order = await getOrderById(id);
@@ -33,7 +33,8 @@ const AdminOrderDetailsPage = async (props: {
     order={{
         ...order,
         shippingAddress: order.shippingAddress as ShippingAddress,
-            }} 
+            }}
+            isAdmin={session?.user?.role === 'admin' || false} 
         />
     );
 };

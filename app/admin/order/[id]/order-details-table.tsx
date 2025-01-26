@@ -7,9 +7,19 @@ import { formatCurrency, formatDateTime, formatId } from "@/lib/utils";
 import { Order } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { updateOrderToPaidCOD, deliverOrder } from "@/lib/actions/order.actions";
+import { useTransition } from "react";
+import { useToast } from '@/hooks/use-toast';
+import { Button } from "@/components/ui/button";
 
 
-const AdminOrderDetailsTable = ({order} : {order: Order}) => {
+const AdminOrderDetailsTable = ({
+    order,
+    isAdmin
+} : {
+    order: Order;
+    isAdmin: boolean;
+}) => {
     const {
         shippingAddress,
         orderitems,
@@ -22,6 +32,50 @@ const AdminOrderDetailsTable = ({order} : {order: Order}) => {
         paidAt,
         deliveredAt 
     } = order;
+
+    // Button to mark order as paid
+    const MarkAsPaidButton = () => {
+        const [isPending, startTransition] = useTransition();
+        const {toast} = useToast();
+
+        return (
+            <Button
+            type = 'button'
+            disabled = {isPending}
+            onClick = {() => startTransition(async() => {
+                const res = await updateOrderToPaidCOD(order.id);
+                toast({
+                    variant: res.success ? 'default' : 'destructive',
+                    description: res.message
+                })
+            })}
+            >
+            {isPending ? 'processing...' : 'Mark As Paid'}
+            </Button>
+        );
+    };
+
+    // Button to mark order as delivered
+    const MarkAsDeliveredButton = () => {
+        const [isPending, startTransition] = useTransition();
+        const {toast} = useToast();
+
+        return (
+            <Button
+            type = 'button'
+            disabled = {isPending}
+            onClick = {() => startTransition(async() => {
+                const res = await deliverOrder(order.id);
+                toast({
+                    variant: res.success ? 'default' : 'destructive',
+                    description: res.message
+                })
+            })}
+            >
+            {isPending ? 'processing...' : 'Mark As Delivered'}
+            </Button>
+        );
+    };
     
     return <>
     <h1 className="py-4 text-3xl">Order <span className="bg-yellow-500 rounded-full px-4">{formatId(order.id)}</span></h1>
@@ -100,6 +154,17 @@ const AdminOrderDetailsTable = ({order} : {order: Order}) => {
                 <div>Total</div>
             <div>{formatCurrency(totalPrice)}</div>
             </div>
+            {/* Cash on Delivery */}
+            {
+                isAdmin && !isPaid && paymentMethod === 'COD' && (
+                    <MarkAsPaidButton />
+                )
+            }
+            {
+                isAdmin && isPaid && !isDelivered && (
+                    <MarkAsDeliveredButton />
+                )
+            }
             </CardContent>
         </Card>
         </div>

@@ -7,7 +7,7 @@ import { getMyCart } from "./cart.actions";
 import { getUserById } from "./user.actions";
 import { insertOrderSchema } from "../validators";
 import { prisma } from "@/db/prisma";
-import { CartItem, PaymentResult } from "@/types";
+import { CartItem} from "@/types";
 import { PAGE_SIZE } from "../constants";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
@@ -230,11 +230,9 @@ export async function deleteOrder(id: string) {
 
 // Update order to paid
 export async function updateOrderToPaid({
-    orderId,
-    paymentResult,
+    orderId
   }: {
     orderId: string;
-    paymentResult?: PaymentResult;
   }) {
     // Get order from database
     const order = await prisma.order.findFirst({
@@ -266,7 +264,6 @@ export async function updateOrderToPaid({
         data: {
           isPaid: true,
           paidAt: new Date(),
-          paymentResult,
         },
       });
     });
@@ -288,4 +285,34 @@ export async function updateOrderToPaidCOD(orderId: string) {
     }
 }
 
-//Update COD Order to Delivered
+//Update COD Order to delivered
+export async function deliverOrder (orderId: string) {
+    try {
+        const order = await prisma.order.findFirst({
+            where: {id: orderId,},
+        });
+
+        if(!order) throw new Error('Order not found');
+        if(!order.isPaid) throw new Error ('Order is not paid');
+
+        await prisma.order.update({
+            where: {
+                id: orderId,
+            },
+            data: {
+                isDelivered: true,
+                deliveredAt: new Date(),
+            },
+        });
+
+        revalidatePath(`/admin/order/${orderId}`);
+
+        return {
+            success: true,
+            message: 'Order has been marked as delivered',
+        }
+        
+    } catch (error) {
+        return {success: false, message: formatError(error)};
+    }
+}

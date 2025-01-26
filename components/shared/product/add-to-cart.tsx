@@ -34,8 +34,7 @@ const AddToCart = ({cart, item}: {cart?: Cart, item: CartItem}) => {
                 description: res.message,
                 action: (
                 <ToastAction className="
-                    bg-primary 
-                    text-white 
+                    bg-primary  
                     hover:bg-gray-800 
                     dark:bg-gray-800 
                     dark:text-white 

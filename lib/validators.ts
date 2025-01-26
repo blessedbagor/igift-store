@@ -16,11 +16,16 @@ export const insertProductSchema = z.object({
     brand: z.string().min(3, 'Brand must be at least 3 characters'),
     description: z.string().min(3, 'Description must be at least 3 characters'),
     stock: z.coerce.number(),
-    images: z.array(z.string()).min(1, 'Product must have at least one image'),
-    isFeatured: z.boolean(),
-    banner: z.string().nullable(),
+    // images: z.array(z.string()).min(1, 'Product must have at least one image'),
+    // isFeatured: z.boolean(),
+    // banner: z.string().nullable(),
     rating: z.coerce.number(),
     price: currency,
+});
+
+//Schema for updating products
+export const updateProductSchema = insertProductSchema.extend({
+  id: z.string().min(1, 'Id is required'),
 });
 
 // Schema for signing users in
@@ -51,6 +56,7 @@ export const cartItemSchema = z.object({
     price: currency,
 });
 
+//Schema for inserting item in the cart
 export const insertCartSchema = z.object({
     items: z.array(cartItemSchema),
     itemsPrice: currency,
@@ -109,11 +115,4 @@ export const insertCartSchema = z.object({
   export const updateProfileSchema = z.object({
     name: z.string().min(3, 'Name must be at least 3 characters'),
     email: z.string().min(3, 'Email must be at least 3 characters'),
-  });
-
-  export const paymentResultSchema = z.object({
-    id: z.string(),
-    status: z.string(),
-    email_address: z.string(),
-    pricePaid: z.string(),
   });

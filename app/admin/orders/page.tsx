@@ -35,7 +35,7 @@ const AdminOrdersPage = async (props: {
         const session = await auth();
             
                     if (session?.user?.role !== 'admin') {
-                            return redirect('/login');
+                            return redirect('/my-account');
                         };
 
         const orders = await getAllOrders({
@@ -56,7 +56,7 @@ const AdminOrdersPage = async (props: {
                                     <TableHead>TOTAL</TableHead>
                                     <TableHead>PAID</TableHead>
                                     <TableHead>DELIVERED</TableHead>
-                                    <TableHead>ACTIONS</TableHead>
+                                    <TableHead className="text-center">ACTIONS</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -76,7 +76,7 @@ const AdminOrdersPage = async (props: {
                                                 ? formatDateTime(order.deliveredAt).dateTime
                                                 : 'Not Yet Delivered'}
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell className='text-center'>
                                             <Button asChild variant='ghost' className="hover:text-yellow-500 hover:bg-transparent">
                                             <Link href={`/admin/order/${order.id}`}>
                                                 <Pencil />
