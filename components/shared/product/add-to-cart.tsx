@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from "@/components/ui/button";
 import {useRouter} from 'next/navigation';
 import { Plus, Minus, Loader } from "lucide-react";
@@ -34,11 +35,7 @@ const AddToCart = ({cart, item}: {cart?: Cart, item: CartItem}) => {
                 description: res.message,
                 action: (
                 <ToastAction className="
-                    bg-primary  
-                    hover:bg-gray-800 
-                    dark:bg-gray-800 
-                    dark:text-white 
-                    dark:hover:bg-gray-700" 
+                    bg-primary" 
                     altText="Go To Cart" 
                     onClick={() => router.push('/cart')}
                     >

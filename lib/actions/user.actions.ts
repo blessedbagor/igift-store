@@ -1,6 +1,6 @@
 'use server';
 
-import {paymentMethodSchema, shippingAddressSchema, signInFormSchema, signUpFormSchema} from '@/lib/validators';
+import {paymentMethodSchema, shippingAddressSchema, signInFormSchema, signUpFormSchema, updateMemberSchema} from '@/lib/validators';
 import {auth, signIn, signOut} from '@/auth';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import {hashSync} from "bcrypt-ts-edge";
@@ -9,6 +9,7 @@ import { formatError } from '@/lib/utils';
 import { ShippingAddress } from '@/types';
 import {z} from 'zod';
 import { PAGE_SIZE } from '../constants';
+import { revalidatePath } from 'next/cache';
 
 
 // Sign in the user with credentials
@@ -198,5 +199,56 @@ export async function getAllMembers({
     return {
         data,
         totalPages: Math.ceil(dataCount / limit),
+    }
+}
+
+// Delete a member
+export async function deleteMember(id: string) {
+    try {
+        const memberExists = await prisma.user.findFirst({
+            where: {id}
+        });
+
+        if(!memberExists) throw new Error('Member not found');
+
+        await prisma.user.delete({where: {id}});
+
+        revalidatePath('/admin/members');
+
+        return {
+            success: true,
+            message: 'Member deleted successfully',
+        };
+    } catch (error) {
+        return {success: false, message: formatError(error)}
+        
+    }
+}
+
+//Update a member
+export async function updateMember(user: z.infer<typeof updateMemberSchema>) {
+    try {
+        const memberExists = await prisma.user.findFirst({
+            where: {id: user.id}
+        });
+
+        if(!memberExists) throw new Error('Member not found');
+
+        await prisma.user.update({
+            where: {id: user.id},
+            data: {
+                name: user.name,
+                role: user.role
+            }
+        });
+
+        revalidatePath('/admin/members');
+
+        return {
+            success: true,
+            message: 'Member updated successfully'
+        };
+    } catch (error) {
+        return {success: false, message: formatError(error)}
     }
 }

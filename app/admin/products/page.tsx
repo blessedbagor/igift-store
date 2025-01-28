@@ -24,19 +24,19 @@ const AdminProductsPage = async(props: {
         page,
         category
     });
-
-
-
     
     return <div className="space-y-4">
-        <div className="flex-between">
-            <h1 className="h2-bold">Products</h1>
-            <Button asChild variant='default'>
-                <Link href='/admin/product/add'>
-                Add Product
-                </Link>
-            </Button>
+        <div className="flex items-center justify-between">
+        <div className="flex items-center">
+            <h1 className="h2-bold mr-4">Products</h1>
         </div>
+        <Button asChild variant="default">
+            <Link href="/admin/product/add">
+            Add Product
+            </Link>
+        </Button>
+        </div>
+
         <Table>
             <TableHeader>
                 <TableRow>

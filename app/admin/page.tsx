@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { auth } from "@/auth";
-import AdminSearch from "./search";
 import { getOrderSummary } from "@/lib/actions/order.actions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BadgeDollarSignIcon, Box, EyeIcon, ShoppingBasket, Users } from "lucide-react";
@@ -9,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import Link from "next/link";
 import MonthlySalesOverviewCharts from "./charts";
 import { redirect } from "next/navigation";
+import AdminSearch from "@/components/shared/admin/admin-search";
 
 export const metadata: Metadata = {
     title: 'Admin Dashboard',

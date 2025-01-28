@@ -44,7 +44,9 @@ const AdminOrdersPage = async (props: {
 
         return (
             <div className="space-y-2">
-                <h2 className="h2-bold">Orders</h2>
+                <div className="flex">
+                <h2 className="h2-bold mr-4">Orders</h2>
+                </div>
                 <div className="overflow-x-auto">
                     {orders.data.length > 0 ? (
                         <Table>
