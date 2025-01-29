@@ -11,7 +11,7 @@ const featuredProducts = await getFeaturedProducts();
   {featuredProducts.length > 0 && <ProductCarousel data={featuredProducts} />}
   <ProductList 
   data={latestProducts} 
-  title="Our Product Packages"
+  title="Popular Packages"
   limit={4}
    />
   </> );
