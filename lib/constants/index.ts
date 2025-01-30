@@ -53,3 +53,12 @@ export const reviewFormDefaultValues = {
     comment: '',
     rating: 0,
 };
+
+export const REFERRAL = {
+    INTERNAL_PARAM: "s",
+    EXTERNAL_BASE: "https://igiftmit.com/igiftmit/joinsout",
+    COOKIE_NAME: "ref_code",
+    EXPIRY_DAYS: 30,
+    ALLOWED_DOMAINS: ["igiftmit.com"]
+  } as const;
+

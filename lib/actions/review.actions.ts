@@ -110,9 +110,10 @@ export async function getReviews({productId} : {productId: string}) {
 export async function getReviewByProductId({productId} : {productId: string}) {
 
     const session = await auth();
+
     if(!session) throw new Error ('User is not authenticated');
 
-    await prisma.review.findFirst({
+   return await prisma.review.findFirst({
         where: {
             productId,
             userId: session?.user?.id,

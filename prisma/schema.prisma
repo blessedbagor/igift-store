@@ -32,6 +32,8 @@ model User {
   name          String          @default("NO_NAME")
   email         String          @unique(map: "user_email_idx")
   emailVerified DateTime?       @db.Timestamp(6)
+  referralCode  String?         @unique
+  affiliateLink String?
   image         String?
   password      String?
   role          String          @default("user")

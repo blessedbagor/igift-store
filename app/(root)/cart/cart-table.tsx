@@ -36,7 +36,7 @@ const CartTable = ({cart}: {cart?: Cart}) => {
                     <Frown size={128} strokeWidth={1.25} className=" text-gray-400" />
                     <h2 className="text-xl font-semibold">Cart is empty</h2>
                     <Link
-                    href="/"
+                    href="/shop"
                     className="mt-4 rounded-md bg-yellow-500 px-4 py-2 text-sm text-white transition-colors hover:bg-yellow-400"
                     >
                         Go Shopping
