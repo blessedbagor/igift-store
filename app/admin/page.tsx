@@ -8,7 +8,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import Link from "next/link";
 import MonthlySalesOverviewCharts from "./charts";
 import { redirect } from "next/navigation";
-import AdminSearch from "@/components/shared/admin/admin-search";
 
 export const metadata: Metadata = {
     title: 'Admin Dashboard',
@@ -27,7 +26,6 @@ const AdminHomePage = async () => {
 
         <div className="flex space-x-4 items-center mb-4">
         <h2 className="h2-bold">Admin Dashboard</h2>
-        <AdminSearch />
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
@@ -37,7 +35,7 @@ const AdminHomePage = async () => {
                 </CardHeader>
                 <CardContent>
                     <div className="text-2xl font-bold">
-                        {formatCurrency(summary.totalSales._sum.totalPrice!.toString())}
+                    {formatCurrency(summary.totalSales?._sum?.totalPrice?.toString() || "0")}
                     </div>
                 </CardContent>
             </Card>
@@ -84,10 +82,11 @@ const AdminHomePage = async () => {
                 <CardTitle>Monthly Sales Overview</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <MonthlySalesOverviewCharts 
-                    data={{
-                        salesData: summary.salesData,
-                    }} />
+                <MonthlySalesOverviewCharts 
+                data={{
+                salesData: summary.salesData?.length ? summary.salesData : [{ month: "No Data", totalSales: 0 }],
+                }} 
+                />
                 </CardContent>
             </Card>
 
@@ -106,24 +105,33 @@ const AdminHomePage = async () => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {summary.latestSales.map((order) => (
-                            <TableRow key={order.id}>
-                                <TableCell>
-                                    {order?.user?.name ? order.user.name : 'Deleted Member'}
-                                    </TableCell>
-                                <TableCell>
-                                    {formatDateTime(order.createdAt).dateOnly}
-                                </TableCell>
-                                <TableCell>
-                                    {formatCurrency(order.totalPrice)}
-                                </TableCell>
-                                <TableCell>
-                                    <Link href={`/admin/order/${order.id}`} className="flex hover:text-gray-500 text-yellow-500">
-                                    <EyeIcon size={20} strokeWidth={1.25}/>{' '} View
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ) )}
+                    {summary.latestSales && summary.latestSales.length > 0 ? (
+                    summary.latestSales.map((order) => (
+                        <TableRow key={order.id}>
+                        <TableCell>
+                            {order?.user?.name ? order.user.name : 'Deleted Member'}
+                        </TableCell>
+                        <TableCell>
+                            {formatDateTime(order.createdAt).dateOnly}
+                        </TableCell>
+                        <TableCell>
+                            {formatCurrency(order.totalPrice)}
+                        </TableCell>
+                        <TableCell>
+                            <Link href={`/admin/order/${order.id}`} className="flex hover:text-gray-500 text-yellow-500">
+                            <EyeIcon size={20} strokeWidth={1.25} /> View
+                            </Link>
+                        </TableCell>
+                        </TableRow>
+                    ))
+                    ) : (
+                    <TableRow>
+                        <TableCell colSpan={4} className="text-center">
+                        No sales data available.
+                        </TableCell>
+                    </TableRow>
+                    )}
+
                     </TableBody>
                 </Table>
                 </CardContent>
