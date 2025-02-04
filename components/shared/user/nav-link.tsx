@@ -6,7 +6,8 @@ import {
     UserIcon, 
     Stethoscope, 
     Network,
-    Presentation
+    Presentation,
+    Share2
     } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,6 +18,11 @@ const links = [
         href: '/my-account', 
         icon: UserIcon 
     },
+    {
+        name: 'Share',
+        href: '/my-account/share',
+        icon: Share2,
+      },
     {
       name: 'Orders',
       href: '/my-account/orders',

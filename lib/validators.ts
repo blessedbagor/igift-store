@@ -131,3 +131,14 @@ export const insertReviewSchema = z.object({
   userId: z.string().min(1, 'User ID is required'),
   rating: z.coerce.number().int().min(1, 'Rating must be at least 1').max(5, 'Rating at most 5'),
 });
+
+//Schema to insert Affiliate Link
+export const insertAffiliateLinkSchema = z.object({
+  userId: z.string().min(1, 'User ID is required'),
+  referralCode: z.string().min(3, 'Referral Code must be at least 3 characters'),
+  affiliateLink: z.string()
+    .url({ message: "Must be a valid URL" })
+    .refine((value) => value.includes("igiftmit.com"), {
+      message: "Affiliate link must be from the domain igiftmit.com",
+    })
+});

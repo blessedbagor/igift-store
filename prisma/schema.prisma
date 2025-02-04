@@ -44,6 +44,7 @@ model User {
   Cart        Cart[]
   order       Order[]
   Review      Review[]
+  Affiliate   Affiliate[]
 }
 
 model Account {
@@ -142,4 +143,13 @@ model Review {
   product          Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+}
+
+model Affiliate {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId        String  @db.Uuid
+  referralCode  String @unique
+  affiliateLink String @unique
+  createdAt   DateTime @default(now()) @db.Timestamp(6)
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

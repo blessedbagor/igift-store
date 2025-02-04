@@ -53,3 +53,8 @@ export const reviewFormDefaultValues = {
     comment: '',
     rating: 0,
 };
+
+export const affiliateFormDefaultValues = {
+    referralCode: '',
+    affiliateLink: '',
+}
