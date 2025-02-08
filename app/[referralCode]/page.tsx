@@ -7,6 +7,8 @@ import { ThumbsDown, ThumbsUp, ArrowBigDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import LatestFiveStarReviews from "@/components/shared/sales-page/get-all-5-star-reviews";
 import FrequentlyAskedQuestions from "@/components/shared/sales-page/faqs";
+import { getOrderSummary } from "@/lib/actions/order.actions";
+import { formatNumber } from '@/lib/utils';
 
 const AffiliateHealthSalesPage = async (props: {
     params: Promise<{referralCode: string}>
@@ -17,6 +19,11 @@ const AffiliateHealthSalesPage = async (props: {
     const referral = await getAffiliateLinkByReferralCode(referralCode);
     
     if(!referral) notFound();
+
+    const summary = await getOrderSummary();
+
+      // Assuming summary contains usersCount
+      const updatedUsersCount = summary.usersCount + 1503;
 
 
     return ( <>
@@ -136,6 +143,7 @@ const AffiliateHealthSalesPage = async (props: {
           <p className="text-xl md:text-lg">
             When you do get sick, <span className="font-bold">you bounce back quickly</span>, so you don&apos;t miss out on important moments or fall behind.
           </p>
+
         </li>
         <li className="flex items-center gap-3">
           <ThumbsUp className="text-green-500 w-6 h-6 shrink-0" />
@@ -690,13 +698,13 @@ const AffiliateHealthSalesPage = async (props: {
   </Card>
 
   <h2 className="text-xl md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-4 mt-12 text-center flex items-center justify-center gap-2">
-      JOIN <span className="underline">1,503</span> HAPPY CUSTOMERS
+      JOIN <span className="underline">{formatNumber(updatedUsersCount)}</span> HAPPY CUSTOMERS
     </h2>
 
     <div className="relative rounded-lg group flex justify-center items-center">
       <Image
         src="/images/happy-customers.png"
-        alt="Join 1,503 Happy Customers"
+        alt="Join Thousands of Happy Customers"
         width={900}
         height={900}
         className="object-cover rounded-b-lg rounded-t-none filter grayscale group-hover:grayscale-0 transition-all duration-300"
@@ -731,18 +739,6 @@ const AffiliateHealthSalesPage = async (props: {
         <FrequentlyAskedQuestions />
 
 
-      
-      
-        <footer className="bg-yellow-100 p-4 text-sm text-center mt-24 mb-36 rounded">
-        <p>
-          <span className='font-bold text-yellow-500'>**</span>
-          These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. 
-          Please consult your healthcare provider before starting any dietary supplement, especially if you are pregnant, nursing, or have a pre-existing medical condition.
-          <span className='font-bold text-yellow-500'>**</span>
-        </p>
-        <p className="mt-12 mb-36">© 2023 - 2025 iGift®. All Rights Reserved.</p>
-      </footer>
-
         {/* AFFILIATE LINK */}
         <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl z-50">
           <Link href={referral.affiliateLink} target="_blank">
@@ -755,7 +751,19 @@ const AffiliateHealthSalesPage = async (props: {
 
       </div>
 
+
+
       </div>
+
+      <footer className="bg-yellow-100 p-4 text-sm text-center mx-auto w-full mt-24 pb-36 rounded">
+        <p className="max-w-3xl text-center justify-center mx-auto pt-12">
+          <span className='font-bold text-yellow-500'>**</span>
+          These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. 
+          Please consult your healthcare provider before starting any dietary supplement, especially if you are pregnant, nursing, or have a pre-existing medical condition.
+          <span className='font-bold text-yellow-500'>**</span>
+        </p>
+        <p className="mt-12 mb-36">© 2023 - 2025 iGift®. All Rights Reserved.</p>
+      </footer>
     </> );
 }
  
