@@ -51,13 +51,13 @@ const UserButton = async () => {
                 </DropdownMenuLabel>
 
                 <DropdownMenuItem>
-                    <Link href='/my-account/' className='w-full'>
+                    <Link href='https://igift.vercel.app/my-account/' className='w-full'>
                     My Account
                     </Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuItem>
-                    <Link href='/my-account/orders' className='w-full'>
+                    <Link href='https://igift.vercel.app/my-account/orders' className='w-full'>
                     Orders
                     </Link>
                 </DropdownMenuItem>
