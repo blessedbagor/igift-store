@@ -20,7 +20,7 @@ export async function createOrder() {
         
 
         const cart = await getMyCart();
-        const userId = await session?.user?.id;
+        const userId = session?.user?.id;
 
         if(!userId) throw new Error('User not found');
 
