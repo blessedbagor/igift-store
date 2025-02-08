@@ -22,13 +22,13 @@ const SignUpPage = async (props: {
     const session = await auth();
 
     if (session) {
-        return redirect(callbackUrl || 'https://igift.vercel.app/');
+        return redirect(callbackUrl || '/');
     }
 
     return <div className="w-full max-w-md mx-auto">
         <Card>
             <CardHeader  className="space-y-4">
-                <Link href="https://igift.vercel.app/" className="flex-center" >
+                <Link href="/" className="flex-center" >
                 <Image 
                 src="/images/logo.svg" 
                 width={80} 

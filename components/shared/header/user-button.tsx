@@ -17,7 +17,7 @@ const UserButton = async () => {
     if (!session) {
         return (
             <Button asChild className='ml-2' variant='outline'>
-                <Link href='https://igift.vercel.app/sign-in'>
+                <Link href='/sign-in'>
                 <UserIcon size={64} /> Sign In
                 </Link>
             </Button>
@@ -51,13 +51,13 @@ const UserButton = async () => {
                 </DropdownMenuLabel>
 
                 <DropdownMenuItem>
-                    <Link href='https://igift.vercel.app/my-account/' className='w-full'>
+                    <Link href='/my-account' className='w-full'>
                     My Account
                     </Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuItem>
-                    <Link href='https://igift.vercel.app/my-account/orders' className='w-full'>
+                    <Link href='/my-account/orders' className='w-full'>
                     Orders
                     </Link>
                 </DropdownMenuItem>

@@ -18,7 +18,7 @@ const CredentialsSignInForm = () => {
     });
 
     const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get('callbackUrl') || 'https://igift.vercel.app/';
+    const callbackUrl = searchParams.get('callbackUrl') || '/';
 
     const SignInButton = () => {
         const {pending} = useFormStatus();

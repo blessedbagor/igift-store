@@ -23,9 +23,9 @@ const SignInPage = async (props: {
 
     if (session) {
         if (session.user.role === 'admin') {
-            return redirect(callbackUrl || 'https://igift.vercel.app/admin');
+            return redirect(callbackUrl || '/admin');
         } else if (session.user.role === 'user') {
-            return redirect(callbackUrl || 'https://igift.vercel.app/my-account');
+            return redirect(callbackUrl || '/my-account');
         }
     }
     
@@ -33,7 +33,7 @@ const SignInPage = async (props: {
     return <div className="w-full max-w-md mx-auto">
         <Card>
             <CardHeader  className="space-y-4">
-                <Link href="https://igift.vercel.app/" className="flex-center" >
+                <Link href="/" className="flex-center" >
                 <Image 
                 src="/images/logo.svg" 
                 width={80} 
