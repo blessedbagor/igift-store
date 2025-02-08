@@ -22,7 +22,7 @@ const SignUpPage = async (props: {
     const session = await auth();
 
     if (session) {
-        return redirect(callbackUrl || '/');
+        return redirect(callbackUrl || 'https://igift.vercel.app/');
     }
 
     return <div className="w-full max-w-md mx-auto">

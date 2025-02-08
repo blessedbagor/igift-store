@@ -17,7 +17,7 @@ const UserButton = async () => {
     if (!session) {
         return (
             <Button asChild className='ml-2' variant='outline'>
-                <Link href='/sign-in'>
+                <Link href='https://igift.vercel.app/sign-in'>
                 <UserIcon size={64} /> Sign In
                 </Link>
             </Button>

@@ -8,7 +8,7 @@ const Header = () => {
     return  <header className="w-full border-b">
     <div className="wrapper flex items-center justify-between">
       {/* Logo Section */}
-      <Link href="/" className="flex items-center">
+      <Link href="https://igift.vercel.app/" className="flex items-center">
         <Image 
           src="/images/logo.svg" 
           alt={`${APP_NAME} logo`} 

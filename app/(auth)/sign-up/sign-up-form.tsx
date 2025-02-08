@@ -18,7 +18,7 @@ const SignUpForm = () => {
     });
 
     const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get('callbackUrl') || '/';
+    const callbackUrl = searchParams.get('callbackUrl') || 'https://igift.vercel.app/';
 
     const SignUpButton = () => {
         const {pending} = useFormStatus();
