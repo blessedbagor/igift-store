@@ -62,7 +62,13 @@ const ShareList = ({ userId }: { userId?: string }) => {
       <Card>
         <CardContent className="p-6 space-y-6">
           {affiliate.length === 0 ? (
-            <div className="text-center text-gray-500">No share service setup yet.</div>
+            <div className="flex flex-col items-center text-gray-500 pb-4">
+            <p className="text-center">No share service setup yet.</p>
+            <div className="mt-4">
+              <ShareForm userId={userId ?? ''} onAffiliateLinkSubmitted={reload} />
+            </div>
+          </div>
+          
           ) : (
             <>
               {affiliate.map((affiliate) => (
@@ -75,41 +81,45 @@ const ShareList = ({ userId }: { userId?: string }) => {
                       <span className="text-gray-700">{affiliate.referralCode || "N/A"}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-medium">Affiliate Link:</span>
-                      <span className="text-gray-700">{affiliate.affiliateLink || "N/A"}</span>
+                      <span className="font-medium mr-4">Affiliate Link:</span>
+                      <span className="text-gray-700 break-all whitespace-normal">
+                        {affiliate.affiliateLink || "N/A"}
+                      </span>
                     </div>
 
                     <div className="flex justify-between items-center font-bold text-lg">
                       <span>Share this link:</span>
                       <div className="flex items-center space-x-3">
                         <Link
-                          href={`https://igift.com.ph/${affiliate.referralCode}`}
+                          href={`/health/${affiliate.referralCode}`}
                           target="_blank"
-                          className="text-gray-500 underline hover:text-yellow-500"
+                          className="text-gray-500 underline hover:text-yellow-500 break-all"
                         >
-                          {`https://igift.com.ph/${affiliate.referralCode}`}
+                          {`https://igift.com.ph/health/${affiliate.referralCode}`}
                         </Link>
                         <button
-                          onClick={() => handleCopyClick(`https://igift.com.ph/${affiliate.referralCode}`)}
+                          onClick={() => handleCopyClick(`https://igift.com.ph/health/${affiliate.referralCode}`)}
                           className="text-gray-600 hover:text-yellow-500"
                         >
-                          <Copy size={24} />
+                          <Copy size={18} />
                         </button>
                       </div>
                     </div>
 
                     {/* QR Code Section */}
-                    <div className="flex items-center space-x-6">
-                      <div ref={qrRef} className="p-4 border rounded-2xl shadow-md bg-white">
-                        <QRCodeCanvas value={`https://igift.com.ph/${affiliate.referralCode}`} size={128} />
+                    <div className="relative flex items-center space-x-6">
+                      {/* QR Code Container */}
+                      <div ref={qrRef} className="relative p-4 border rounded-2xl shadow-md bg-white">
+                        <QRCodeCanvas value={`https://igift.com.ph/health/${affiliate.referralCode}`} size={128} />
+                        
+                        {/* Centered Download Button */}
+                        <button
+                          onClick={downloadQRCode}
+                          className="absolute inset-0 m-auto h-8 w-8 flex items-center justify-center text-yellow-500 bg-white hover:text-white hover:bg-yellow-500 rounded"
+                        >
+                          <Download size={24} />
+                        </button>
                       </div>
-                      <button
-                        onClick={downloadQRCode}
-                        className="flex items-center space-x-2 px-4 py-2 bg-yellow-500 text-white rounded-2xl hover:bg-yellow-500"
-                      >
-                        <Download size={24} />
-                        <span>Download QR Code</span>
-                      </button>
                     </div>
 
                     {affiliate.affiliateLink ? (
@@ -125,6 +135,7 @@ const ShareList = ({ userId }: { userId?: string }) => {
         </CardContent>
       </Card>
     </div>
+
   );
 };
 

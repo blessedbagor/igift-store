@@ -102,7 +102,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
                   <FormItem>
                     <FormLabel>Affiliate Link</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Enter your iGiftMIT.com Referral Link" {...field} />
+                      <Textarea placeholder="Enter your iGiftMIT.com Referral Link" className="h-24 resize-none"{...field} />
                     </FormControl>
                     <FormMessage>{form.formState.errors.affiliateLink?.message}</FormMessage>
                   </FormItem>

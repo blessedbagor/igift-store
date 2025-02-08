@@ -66,4 +66,9 @@ export async function getShareServiceById() {
     });
   }
   
-  
+  //Get Affiliate Link by ReferralCode
+  export async function getAffiliateLinkByReferralCode(referralCode: string) {
+    return await prisma.affiliate.findFirst({
+        where: {referralCode: referralCode},
+    });
+  }

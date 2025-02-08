@@ -11,8 +11,7 @@ const SideNav = async () => {
     const session = await auth();
 
     if (!session) {
-        redirect('/sign-in'); // Redirect to the sign-in page if no session
-        return null; // Ensure no rendering occurs after redirection
+        redirect('/')
     }
     return (
       <div className="flex h-full flex-col px-3 py-4 md:px-2">

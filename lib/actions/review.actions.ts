@@ -106,6 +106,52 @@ export async function getReviews({productId} : {productId: string}) {
     return {data};
 }
 
+//Get all five star reviews
+export async function getAllLatestFiveStarReviews() {
+    const data = await prisma.review.findMany({
+        take: 8,
+        include: {
+            user: {
+                select: {
+                    name: true,
+                }
+            }
+        },
+        orderBy: {
+            createdAt: 'desc'
+        },
+        where: {
+            rating: 5
+        },
+    });
+
+    return {data};
+}
+
+// Get all reviews with their ratings to calculate the average and count
+export async function getReviewStats() {
+    const data = await prisma.review.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  
+    const totalReviews = data.length;
+  
+    // Calculate average rating (rounded to 2 decimal places)
+    const totalRating = data.reduce((sum, review) => sum + review.rating, 0);
+    const averageRating = totalReviews > 0 ? (totalRating / totalReviews).toFixed(2) : "0.00";
+  
+    return {
+      totalReviews,
+      averageRating,
+    };
+  }
+
 //Get a review written by the current user
 export async function getReviewByProductId({productId} : {productId: string}) {
 
