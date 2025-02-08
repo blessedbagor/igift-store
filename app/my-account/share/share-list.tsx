@@ -95,10 +95,10 @@ const ShareList = ({ userId }: { userId?: string }) => {
                           target="_blank"
                           className="text-gray-500 underline hover:text-yellow-500 break-all"
                         >
-                          {`https://igift.com.ph/health/${affiliate.referralCode}`}
+                          {`https://igift.ph/${affiliate.referralCode}`}
                         </Link>
                         <button
-                          onClick={() => handleCopyClick(`https://igift.com.ph/health/${affiliate.referralCode}`)}
+                          onClick={() => handleCopyClick(`https://igift.ph/${affiliate.referralCode}`)}
                           className="text-gray-600 hover:text-yellow-500"
                         >
                           <Copy size={18} />
@@ -110,7 +110,7 @@ const ShareList = ({ userId }: { userId?: string }) => {
                     <div className="relative flex items-center space-x-6">
                       {/* QR Code Container */}
                       <div ref={qrRef} className="relative p-4 border rounded-2xl shadow-md bg-white">
-                        <QRCodeCanvas value={`https://igift.com.ph/health/${affiliate.referralCode}`} size={128} />
+                        <QRCodeCanvas value={`https://igift.ph/${affiliate.referralCode}`} size={128} />
                         
                         {/* Centered Download Button */}
                         <button
