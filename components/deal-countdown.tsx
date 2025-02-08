@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const TARGET_DATE = new Date("2025-03-09T00:00:00");
+const TARGET_DATE = new Date("2025-02-14T00:00:00");
 
 const calculateTimeRemaining = (targetDate: Date) => {
   const currentTime = new Date();
@@ -70,9 +70,11 @@ const DealCountdown = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 my-20">
       <div className="flex flex-col gap-4 justify-center">
-      <h3 className="text-3xl font-bold text-center md:text-left">Deal of the Month</h3>
+      <h3 className="text-3xl font-bold text-center md:text-left">Valentines Promo</h3>
         <p className="text-lg">
-          Get ready for a shopping experience like never before with our Deals of the month! Every purchase comes with exclusive perks and offers, making this month a celebration of savvy choices and amazing deals. Don&apos;t miss out! 🎁🛍️
+        Celebrate love and success! <br />
+        Receive 1 Paid Gold Account plus 1 Free Slot Gold Account for every Gold Package purchase. 
+        Share the gift of health and opportunity this Valentine&apos;s season! ❤️
         </p>
         <ul className="grid grid-cols-4 gap-4 my-4">
           <StatBox label="Days" value={time.days} />
@@ -82,7 +84,7 @@ const DealCountdown = () => {
         </ul>
         <div className="text-center">
           <Button asChild>
-            <Link href="/shop">View Packages</Link>
+            <Link href="/product/gold-package">View Package</Link>
           </Button>
         </div>
       </div>
