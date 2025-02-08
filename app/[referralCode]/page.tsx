@@ -716,7 +716,7 @@ const AffiliateHealthSalesPage = async (props: {
             { title: "8 Proven Ways to Earn", description: "Unlock multiple income streams and build lasting financial stability." }
           ].map((item, index) => (
             <li key={index} className="flex items-start space-x-6">
-              <div className="w-4 h-4 flex items-center justify-center bg-yellow-500 text-white font-bold rounded-full p-4">
+              <div className="w-4 h-4 flex items-center justify-center bg-yellow-400 font-bold rounded-full p-4">
                 {index + 1}
               </div>
               <p>
@@ -731,14 +731,9 @@ const AffiliateHealthSalesPage = async (props: {
         <FrequentlyAskedQuestions />
 
 
-      {/* AFFILIATE LINK */}
-      <Link href={referral.affiliateLink} target="_blank">
-              <Button className="p-8 text-xl uppercase font-bold fixed bottom-0 left-0 w-full bg-yellow-500 text-white hover:bg-red-600 z-50">
-                FILL UP THE FORM TO GET STARTED
-              </Button>
-            </Link>
       
-        <footer className="bg-gray-100 p-4 text-sm text-gray-600 text-center mt-24 mb-18">
+      
+        <footer className="bg-yellow-100 p-4 text-sm text-center mt-24 mb-36 rounded">
         <p>
           <span className='font-bold text-yellow-500'>**</span>
           These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. 
@@ -747,8 +742,19 @@ const AffiliateHealthSalesPage = async (props: {
         </p>
       </footer>
 
+        {/* AFFILIATE LINK */}
+        <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl z-50">
+          <Link href={referral.affiliateLink} target="_blank">
+            <Button className="p-8 text-xl uppercase font-bold w-full text-white hover:text-black bg-realGreen hover:bg-gold">
+              FILL UP THE FORM TO GET STARTED
+            </Button>
+          </Link>
+        </div>
+
+
       </div>
-    </div>
+
+      </div>
     </> );
 }
  
