@@ -10,7 +10,7 @@ const outfit = Outfit({subsets: ['latin']});
 export const metadata: Metadata = {
   title: `${APP_NAME}`,
   description: `${APP_DESCRIPTION}`,
-  metadataBase: new URL(SERVER_URL),
+  metadataBase: SERVER_URL ? new URL(SERVER_URL) : undefined
 }
 
 
