@@ -91,7 +91,7 @@ const ShareList = ({ userId }: { userId?: string }) => {
                       <span>Share this link:</span>
                       <div className="flex items-center space-x-3">
                         <Link
-                          href={`/health/${affiliate.referralCode}`}
+                          href={`/${affiliate.referralCode}`}
                           target="_blank"
                           className="text-gray-500 underline hover:text-yellow-500 break-all"
                         >
