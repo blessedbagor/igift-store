@@ -26,7 +26,7 @@ const AffiliateHealthSalesPage = async (props: {
 
       {/* Logo Section */}
       <div className="flex justify-center mb-2">
-        <Link href='/my-account/share' target="_blank">
+        <Link href='https://igift.vercel.app/my-account/share' target="_blank">
         <Image
           src="/images/logo.svg"
           alt="iGift Logo"
