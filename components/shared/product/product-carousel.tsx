@@ -10,7 +10,7 @@ const ProductCarousel = ({data}: {data: Product[] }) => {
     return <Carousel className='w-full mb-12' opts={{loop: true}}
     plugins={[
         Autoplay({
-            delay: 5000,
+            delay: 3000,
             stopOnInteraction: true,
             stopOnMouseEnter: true,
         })
