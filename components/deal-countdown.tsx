@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const TARGET_DATE = new Date("2025-02-14T00:00:00");
+const TARGET_DATE = new Date("2025-02-15T00:00:00");
 
 const calculateTimeRemaining = (targetDate: Date) => {
   const currentTime = new Date();
@@ -72,7 +72,6 @@ const DealCountdown = () => {
       <div className="flex flex-col gap-4 justify-center">
       <h3 className="text-3xl font-bold text-center md:text-left">Valentines Promo</h3>
         <p className="text-lg">
-        Celebrate love and success! <br />
         Receive 1 Paid Gold Account plus 1 Free Slot Gold Account for every Gold Package purchase. 
         Share the gift of health and opportunity this Valentine&apos;s season! ❤️
         </p>
