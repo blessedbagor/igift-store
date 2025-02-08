@@ -740,6 +740,7 @@ const AffiliateHealthSalesPage = async (props: {
           Please consult your healthcare provider before starting any dietary supplement, especially if you are pregnant, nursing, or have a pre-existing medical condition.
           <span className='font-bold text-yellow-500'>**</span>
         </p>
+        <p className="mt-12">© 2023 - 2025 iGift®. All Rights Reserved.</p>
       </footer>
 
         {/* AFFILIATE LINK */}
