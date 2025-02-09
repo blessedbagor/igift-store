@@ -52,7 +52,7 @@ const AffiliateHealthSalesPage = async (props: {
       </p>
 
       {/* BODY SECTION*/}
-      <div className="text-left m-8 mx-auto max-w-3xl">
+      <div className="text-left mx-auto max-w-full sm:max-w-3xl">
       <p className="text-xl md:text-lg mt-12">Hi Friend👋,</p>
           <p className="text-xl md:text-lg mt-12">
               If you&apos;re always busy, juggling work and life, and feeling like 
