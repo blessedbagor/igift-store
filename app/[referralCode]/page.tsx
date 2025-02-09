@@ -354,7 +354,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <h3 className="text-xl md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-2 mt-6 text-center flex items-center justify-center gap-2">
+    <h3 className="text-lg md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-2 mt-6 text-center flex items-center justify-center gap-2">
       <ArrowBigDown />
       FORTIVIT MICRONUTRIENTS 100MG 
       <ArrowBigDown />
@@ -530,13 +530,13 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <h2 className="text-xl md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-4 mt-12 text-center flex items-center justify-center gap-2">
+    <h2 className="text-md md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-4 mt-12 text-center flex items-center justify-center gap-2">
       CUSTOMERS <span className="underline">LOVE</span> IMMUNO BOOST ADVANCE+
     </h2>
 
       <LatestFiveStarReviews />
 
-      <h2 className="text-xl md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-6 mt-12 text-center flex items-center justify-center gap-2">
+      <h2 className="text-md md:text-2xl font-bold bg-yellow-500 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500 text-white p-6 mt-12 text-center flex items-center justify-center gap-2">
       YOU DESERVE <span className="underline">STRONGER</span> IMMUNITY
     </h2>
 
@@ -728,7 +728,7 @@ const AffiliateHealthSalesPage = async (props: {
                 {index + 1}
               </div>
               <p>
-                <span className="font-semibold text-md">{item.title}:</span> {item.description}
+                <span className="font-semibold text-lg md:text-xl">{item.title}</span> <br />{item.description}
               </p>
             </li>
           ))}
