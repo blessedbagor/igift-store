@@ -742,9 +742,10 @@ const AffiliateHealthSalesPage = async (props: {
         {/* AFFILIATE LINK */}
         <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl z-50">
           <Link href={referral.affiliateLink} target="_blank">
-            <Button className="p-8 text-xl uppercase font-bold w-full text-white hover:text-black bg-realGreen hover:bg-gold">
-              FILL UP THE FORM TO GET STARTED
-            </Button>
+          <Button className="p-8 text-xl uppercase rounded-none font-bold w-full text-white hover:text-black bg-realGreen hover:bg-gold">
+            FILL UP THE FORM TO GET STARTED
+          </Button>
+
           </Link>
         </div>
 
