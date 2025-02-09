@@ -62,9 +62,9 @@ export default function FrequentlyAskedQuestions() {
     {faqs.map((faq, index) => (
       <AccordionItem key={index} value={`item-${index}`}>
         <AccordionTrigger>
-           <div className='text-xl font-bold'>{faq.question}</div> 
+           <div className='text-2xl font-bold'>{faq.question}</div> 
             </AccordionTrigger>
-        <AccordionContent>{faq.answer}</AccordionContent>
+        <AccordionContent className="text-xl space-y-2">{faq.answer}</AccordionContent>
       </AccordionItem>
     ))}
   </Accordion>
