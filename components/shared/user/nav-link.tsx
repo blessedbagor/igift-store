@@ -56,20 +56,21 @@ const NavLink = () => {
 
                 return (
                     <Link
-                        key={link.name}
-                        href={link.href}
-                        className={clsx(
-                            "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-sm font-medium hover:bg-yellow-100 dark:hover:text-yellow-500 hover:text-yellow-600 md:flex-none md:justify-start md:p-2 md:px-3",
-                            {
-                                'bg-yellow-100 text-yellow-600 dark:text-yellow-500': pathname === link.href,
-                            }
-                        )}
-                        target={isExternal ? '_blank' : undefined}
-                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                    key={link.name}
+                    href={link.href}
+                    className={clsx(
+                        "flex w-full h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-sm font-medium hover:bg-yellow-100 dark:hover:text-yellow-500 hover:text-yellow-600 md:flex-none md:justify-start md:p-2 md:px-3",
+                        {
+                        'bg-yellow-100 text-yellow-600 dark:text-yellow-500': pathname === link.href,
+                        }
+                    )}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
                     >
-                        <LinkIcon className="w-6" />
-                        <p className="hidden md:block">{link.name}</p>
+                    <LinkIcon className="w-6" />
+                    <p className="hidden md:block">{link.name}</p> {/* Hidden on small screens, shown on md and above */}
                     </Link>
+
                 );
             })}
         </>
