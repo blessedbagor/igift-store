@@ -87,7 +87,7 @@ const ShareList = ({ userId }: { userId?: string }) => {
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center font-bold text-lg">
+                    <div className="flex justify-between items-center font-bold text-md: md:text-lg">
                       <span>Share this link:</span>
                       <div className="flex items-center space-x-3">
                         <Link
