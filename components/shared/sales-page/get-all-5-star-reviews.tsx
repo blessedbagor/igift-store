@@ -73,7 +73,7 @@ export default function LatestFiveStarReviews() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <BadgeCheckIcon className="w-4 h-4 cursor-pointer hover:scale-110 transition-transform fill-yellow-400 ml-1" />
+                    <BadgeCheckIcon className="w-5 h-5 cursor-pointer hover:scale-110 transition-transform fill-blue-500 text-white ml-1" />
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Verified Customer</p>
