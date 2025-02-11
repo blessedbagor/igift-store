@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import {Outfit} from 'next/font/google';
+import {Geist} from 'next/font/google';
 import '@/assets/styles/global.css';
 import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
 
-const outfit = Outfit({subsets: ['latin']});
+const geist = Geist({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: `${APP_NAME}`,
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.className}`}>
+      <body className={`${geist.className}`}>
         <ThemeProvider
         attribute="class"
         defaultTheme="light"
