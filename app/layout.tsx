@@ -4,6 +4,7 @@ import '@/assets/styles/global.css';
 import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const geist = Geist({subsets: ['latin']});
 
@@ -31,8 +32,8 @@ export default function RootLayout({
         {children}
         <Toaster />
         </ThemeProvider>
-        
         </body>
+        <GoogleAnalytics gaId="G-T4S69STPFC" />
     </html>
   )
 }
