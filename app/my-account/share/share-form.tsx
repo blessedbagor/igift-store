@@ -70,7 +70,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
       <Button onClick={handleOpenForm} variant="default">
         Setup Share Service
       </Button>
-      <DialogContent className="sm:max-w-[425px] p-4">
+      <DialogContent className="sm:max-w-[425px]">
         <Form {...form}>
           <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
             <DialogHeader>
