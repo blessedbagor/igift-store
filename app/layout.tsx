@@ -21,6 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <>
     <html lang="en" suppressHydrationWarning>
       <body className={`${geist.className}`}>
         <ThemeProvider
@@ -35,5 +36,6 @@ export default function RootLayout({
         </body>
         <GoogleAnalytics gaId="G-T4S69STPFC" />
     </html>
+    </>
   )
 }

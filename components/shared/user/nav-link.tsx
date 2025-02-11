@@ -67,8 +67,8 @@ const NavLink = () => {
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     >
-                    <LinkIcon className="w-6" />
-                    <p className="hidden md:block">{link.name}</p> {/* Hidden on small screens, shown on md and above */}
+                    <LinkIcon className="w-4" />
+                    <p className="hidden md:block">{link.name}</p>
                     </Link>
 
                 );
