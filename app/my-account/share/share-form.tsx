@@ -70,7 +70,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
       <Button onClick={handleOpenForm} variant="default">
         Setup Share Service
       </Button>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] p-4">
         <Form {...form}>
           <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
             <DialogHeader>
@@ -88,7 +88,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
                   <FormItem>
                     <FormLabel>Referral Code</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your iGiftMIT.com Username" {...field} />
+                      <Input className="w-full" placeholder="Enter your iGiftMIT.com Username" {...field} />
                     </FormControl>
                     <FormMessage>{form.formState.errors.referralCode?.message}</FormMessage>
                   </FormItem>
@@ -102,7 +102,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
                   <FormItem>
                     <FormLabel>Affiliate Link</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Enter your iGiftMIT.com Referral Link" className="h-24 resize-none"{...field} />
+                      <Textarea placeholder="Enter your iGiftMIT.com Referral Link" className="w-full h-24 resize-none"{...field} />
                     </FormControl>
                     <FormMessage>{form.formState.errors.affiliateLink?.message}</FormMessage>
                   </FormItem>
