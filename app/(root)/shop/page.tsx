@@ -1,5 +1,26 @@
 import ProductCard from "@/components/shared/product/product-card";
 import { getAllProducts } from "@/lib/actions/product.actions";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'iGift | Shop',
+  description: 'Maximize health and savings with iGift Shop&apos;s product packages.',
+  openGraph: {
+    title: 'iGift | Shop ',
+    description: 'Maximize health and savings with iGift Shop&apos;s product packages.', 
+    siteName: 'iGift',
+    images: [
+      {
+        url: 'https://igift.ph/images/customer.png', 
+        width: 1200,
+        height: 630,
+        alt: 'Always Tired',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+}
 
 const SearchPage = async(props: {searchParams: Promise<{
     q?:string,

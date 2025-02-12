@@ -7,9 +7,11 @@ import { useState } from "react";
 import ReviewForm from "./review-form";
 import { getReviews } from "@/lib/actions/review.actions";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, UserIcon } from "lucide-react";
+import { BadgeCheckIcon, Calendar } from "lucide-react";
 import { formatDateTime } from "@/lib/utils";
 import Rating from "@/components/shared/product/rating";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 
 
@@ -65,11 +67,26 @@ const ReviewList = ({userId, productId, productSlug}: {
                             <div className="flex space-x-4 text-sm text-muted-foreground">
                                 <Rating value={review.rating} />
                                 <div className="flex items-center">
-                                    <UserIcon className="mr-1 h3- w-3"/>
+                                <Button 
+                                variant="ghost" 
+                                className="relative w-4 h-8 rounded-full mx-2 flex items-center justify-center bg-yellow-300 text-black"
+                            >
+                                <p className="text-sm">{review.user?.name?.charAt(0).toUpperCase() ?? 'U'}</p>
+                                </Button>
                                     {review.user ? review.user.name : 'Anonymous'}
+                                    <TooltipProvider>
+                                    <Tooltip>
+                                    <TooltipTrigger>
+                                        <BadgeCheckIcon className="w-5 h-5 cursor-pointer hover:scale-110 transition-transform fill-blue-500 text-white ml-1" />
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Verified Customer</p>
+                                    </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
                                 </div>
                                 <div className="flex items-center">
-                                    <Calendar className="mr-1 h3- w-3"/>
+                                    <Calendar className="mr-1 h4- w-4"/>
                                     {formatDateTime(review.createdAt).dateTime}
                                 </div>
                             </div>
