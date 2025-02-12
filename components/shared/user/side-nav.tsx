@@ -6,6 +6,7 @@ import { signOutUser } from "@/lib/actions/user.actions";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import NavLink from "@/components/shared/user/nav-link";
+import UserMobileNav from "./mobile-nav";
 
 const SideNav = async () => {
     const session = await auth();
@@ -14,7 +15,8 @@ const SideNav = async () => {
         redirect('/');
     }
     return (
-      <div className="flex h-full flex-col px-3 py-4 md:px-2">
+      <>
+      <div className="h-full flex-col px-3 py-4 md:px-2 hidden md:block">
         <div className="mb-2 flex h-20 justify-center items-center rounded-md bg-gray-950  dark:bg-gray-800 p-2 md:h-20">
         <Link href="/">
         <div className="flex items-center space-x-4">
@@ -33,13 +35,15 @@ const SideNav = async () => {
           <NavLink />
           <div className="hidden h-auto w-full grow rounded-md bg-gray-50 dark:bg-gray-800 md:block"></div>
           <form action={signOutUser}>
-            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-sm font-medium hover:bg-yellow-100 hover:text-yellow-600 dark:hover:text-yellow-400 md:flex-none md:justify-start md:p-2 md:px-3">
-              <PowerIcon className="w-4" />
+            <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-md font-medium hover:bg-yellow-100 hover:text-yellow-600 dark:hover:text-yellow-400 md:flex-none md:justify-start md:p-2 md:px-3">
+              <PowerIcon className="w-6" />
               <div className="hidden md:block">Sign Out</div>
             </button>
           </form>
         </div>
       </div>
+      <UserMobileNav />
+      </>
     );
   }
 

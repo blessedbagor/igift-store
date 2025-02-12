@@ -59,7 +59,7 @@ const NavLink = () => {
                     key={link.name}
                     href={link.href}
                     className={clsx(
-                        "flex w-full h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-sm font-medium hover:bg-yellow-100 dark:hover:text-yellow-500 hover:text-yellow-600 md:flex-none md:justify-start md:p-2 md:px-3",
+                        "flex w-full h-[48px] lg:items-center items-start gap-2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-md font-medium hover:bg-yellow-100 dark:hover:text-yellow-500 hover:text-yellow-600",
                         {
                         'bg-yellow-100 text-yellow-600 dark:text-yellow-500': pathname === link.href,
                         }
@@ -67,8 +67,8 @@ const NavLink = () => {
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     >
-                    <LinkIcon className="w-4" />
-                    <p className="hidden md:block">{link.name}</p>
+                    <LinkIcon className="w-6" />
+                    <p >{link.name}</p>
                     </Link>
 
                 );
