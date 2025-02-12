@@ -8,11 +8,11 @@ import DealCountdown from "@/components/deal-countdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'iGift - Your Best Life',
+  title: 'iGift | Your Best Life',
   description: 'We offer premium food supplements, innovative opportunities, and digital solutions to help you live your best life.',
   openGraph: {
-    title: 'iGift - Your Best Life',
-    description: 'We offer premium food supplements, innovative opportunities, and digital solutions to help you live your best life.', 
+    title: 'iGift | Your Best Life',
+    description: 'iGift fuels your best life with wellness, income, and digital solutions.', 
     siteName: 'iGift',
     images: [
       {
