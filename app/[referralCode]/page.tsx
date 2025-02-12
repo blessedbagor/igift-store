@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { getAffiliateLinkByReferralCode } from "@/lib/actions/affiliate.actions";
 import Link from "next/link";
@@ -9,6 +10,34 @@ import LatestFiveStarReviews from "@/components/shared/sales-page/get-all-5-star
 import FrequentlyAskedQuestions from "@/components/shared/sales-page/faqs";
 import { getOrderSummary } from "@/lib/actions/order.actions";
 import { formatNumber } from '@/lib/utils';
+
+type Props = {
+  params: { referralCode: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { referralCode } = params;
+  return {
+  title: 'Tired Unhappy and Always Getting Sick?',
+  description: 'Discover how to break free from feeling weak, drained, and constantly worried about getting sick.',
+  openGraph: {
+    title: 'Tired Unhappy and Always Getting Sick?',
+    description: 'Discover how to break free from constantly worried about getting sick.',
+    url: `https://igift.ph/${referralCode}`, 
+    siteName: 'iGift',
+    images: [
+      {
+        url: 'https://igift.ph/images/tired.png', 
+        width: 1200,
+        height: 630,
+        alt: 'Always Tired',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  };
+};
 
 const AffiliateHealthSalesPage = async (props: {
     params: Promise<{referralCode: string}>
