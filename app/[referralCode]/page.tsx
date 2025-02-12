@@ -11,19 +11,12 @@ import FrequentlyAskedQuestions from "@/components/shared/sales-page/faqs";
 import { getOrderSummary } from "@/lib/actions/order.actions";
 import { formatNumber } from '@/lib/utils';
 
-type Props = {
-  params: { referralCode: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { referralCode } = params;
-  return {
+export const metadata: Metadata = {
   title: 'Tired Unhappy and Always Getting Sick?',
   description: 'Discover how to break free from feeling weak, drained, and constantly worried about getting sick.',
   openGraph: {
     title: 'Tired Unhappy and Always Getting Sick?',
-    description: 'Discover how to break free from constantly worried about getting sick.',
-    url: `https://igift.ph/${referralCode}`, 
+    description: 'Discover how to break free from constantly worried about getting sick.', 
     siteName: 'iGift',
     images: [
       {
@@ -36,8 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale: 'en_US',
     type: 'website',
   },
-  };
-};
+}
 
 const AffiliateHealthSalesPage = async (props: {
     params: Promise<{referralCode: string}>
