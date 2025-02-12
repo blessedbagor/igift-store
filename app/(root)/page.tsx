@@ -5,7 +5,27 @@ import IconBoxes from "@/components/icon-boxes";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import DealCountdown from "@/components/deal-countdown";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'iGift - Your Best Life',
+  description: 'We offer premium food supplements, innovative opportunities, and digital solutions to help you live your best life.',
+  openGraph: {
+    title: 'iGift - Your Best Life',
+    description: 'We offer premium food supplements, innovative opportunities, and digital solutions to help you live your best life.', 
+    siteName: 'iGift',
+    images: [
+      {
+        url: 'https://igift.ph/images/home.png', 
+        width: 1200,
+        height: 630,
+        alt: 'iGift - Your Best Life',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+}
 
 const Homepage = async () => {
 const latestProducts = await getLatestProducts();
