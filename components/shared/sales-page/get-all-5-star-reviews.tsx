@@ -43,7 +43,7 @@ export default function LatestFiveStarReviews() {
   return (
     <div>
       {/* Review Stats */}
-      <div className="flex p-4 bg-gray-50 rounded-xl shadow-md mb-6 max-w-3xl mx-auto justify-center items-center text-center">
+      <div className="flex p-4  rounded-xl shadow-md mb-6 max-w-3xl mx-auto justify-center items-center text-center">
         <span className='font-bold rounded-full bg-gold px-2'>{Number(reviewStats.averageRating).toFixed(1)}</span>
         <span className="mx-3">
             <Rating value={Number(reviewStats.averageRating)} />
@@ -55,7 +55,7 @@ export default function LatestFiveStarReviews() {
       {reviews.map((review) => (
         <Card
           key={review.id}
-          className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-200 hover:border-yellow-400 border-2 rounded-2xl shadow-lg mt-6 max-w-3xl mx-auto"
+          className="flex flex-col md:flex-row gap-4 p-6  border-yellow-200 hover:border-yellow-400 border-2 rounded-2xl shadow-lg mt-6 max-w-3xl mx-auto"
         >
           {/* Right Text Section */}
           <CardContent className="flex flex-col justify-center text-center md:text-left w-full md:w-2/3">

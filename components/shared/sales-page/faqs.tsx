@@ -57,7 +57,7 @@ export default function FrequentlyAskedQuestions() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 bg-white shadow-lg rounded-xl text-xl md:text-lg mt-12">
+    <div className="max-w-3xl mx-auto my-10 p-6 shadow-lg rounded-xl text-xl md:text-lg mt-12">
   <Accordion type="single" collapsible className="space-y-4">
     {faqs.map((faq, index) => (
       <AccordionItem key={index} value={`item-${index}`}>

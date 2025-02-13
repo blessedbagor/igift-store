@@ -71,7 +71,7 @@ const AffiliateHealthSalesPage = async (props: {
       <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-5xl mx-auto my-4">
        Tired, Unhappy, <br /> and Always Getting Sick?
       </h1>
-      <p className="text-destructive mb-8 max-w-5xl mx-auto italic text-2xl">
+      <p className="text-destructive mb-8 max-w-5xl mx-auto italic text-2xl dark:text-red-500">
       See how <span className="font-bold">{formatNumber(updatedUsersCount)}</span> people found a way to feel better and stronger.
       </p>
 
@@ -79,7 +79,7 @@ const AffiliateHealthSalesPage = async (props: {
       <div className="text-left mx-auto max-w-full sm:max-w-3xl">
       <p className="text-xl md:text-lg mt-12">Hi Friend👋,</p>
           <p className="text-xl md:text-lg mt-12">
-          My name is <span className="font-bold italic">{referral.user.name}</span>, and I know exactly how it feels.
+          My name is <span className="font-bold italic dark:text-gold">{referral.user.name}</span>, and I know exactly how it feels.
           </p>
           <p className="text-xl md:text-lg mt-4">
           If you&apos;re always busy, juggling work and life, and feeling like 
@@ -205,7 +205,7 @@ const AffiliateHealthSalesPage = async (props: {
       </h2>
       <p className='text-5xl md:text-6xl font-bold text-center mt-12'>Strengthen Your Immunity With Immuno Boost Advance+</p>
 
-      <div className="relative rounded-lg group flex justify-center items-center mt-8">
+      <div className="relative rounded-lg group flex justify-center items-center mt-8 dark:bg-white">
       <Image 
           src="/images/power-your-day.png" 
           alt="Immuno Boost Advance+" 
@@ -213,7 +213,7 @@ const AffiliateHealthSalesPage = async (props: {
           height={900} 
           className="object-cover z-10"
         />
-      <div className="z-0 absolute inset-0 rounded-lg bg-gradient-to-r from-red-200 to-yellow-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="z-0 absolute inset-0 rounded-lg  bg-gradient-to-r from-red-200 to-yellow-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
 
       <p className="text-xl md:text-lg mt-12">
@@ -225,7 +225,7 @@ const AffiliateHealthSalesPage = async (props: {
       <p>Packed with <span className='font-bold'>Astaxanthin, Vitamin D3, Zinc, Rosehips Extract, Inulin Fiber, and Citrus Bioflavonoids</span>, this expertly formulated blend works together to help you stay one step ahead of illness while fueling your daily energy.*</p>
       
       <p className="italic text-2xl font-bold">It&apos;s not just about the ingredients—it&apos;s the powerful way they work together to deliver unmatched support for your health and energy.</p>
-      <div className="relative rounded-lg group flex justify-center items-center mt-8">
+      <div className="relative rounded-lg group flex justify-center items-center mt-8 dark:bg-gray-200">
       <Image 
           src="/images/powerful-ingredients.png" 
           alt="Immuno Boost Advance+" 
@@ -262,7 +262,7 @@ const AffiliateHealthSalesPage = async (props: {
 
     <h2 className='text-5xl md:text-6xl font-bold text-center mt-12'>Stronger Immunity, More Energy, and Fewer Sick Days</h2>
     
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
         <div className="rounded-2xl">
           {/* Left Image Section */}
           <div className="flex-shrink-0">
@@ -287,7 +287,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6 border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Description Section */}
       <CardContent className="flex flex-col justify-center text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 uppercase">Rosehips Extract 100MG</h3>
@@ -311,7 +311,7 @@ const AffiliateHealthSalesPage = async (props: {
       </div>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -335,7 +335,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Description Section */}
       <CardContent className="flex flex-col justify-center text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 uppercase">Citrus Bioflavonoids 85mg</h3>
@@ -360,7 +360,7 @@ const AffiliateHealthSalesPage = async (props: {
     </Card>
 
     
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -391,7 +391,7 @@ const AffiliateHealthSalesPage = async (props: {
     </h3>
 
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -416,7 +416,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Description Section */}
       <CardContent className="flex flex-col justify-center text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 uppercase">Lysine & Magnesium</h3>
@@ -440,7 +440,7 @@ const AffiliateHealthSalesPage = async (props: {
       </div>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -464,7 +464,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Description Section */}
       <CardContent className="flex flex-col justify-center text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 uppercase">B Vitamins</h3>
@@ -488,7 +488,7 @@ const AffiliateHealthSalesPage = async (props: {
       </div>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -512,7 +512,7 @@ const AffiliateHealthSalesPage = async (props: {
       </CardContent>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Description Section */}
       <CardContent className="flex flex-col justify-center text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 uppercase">Calcium</h3>
@@ -536,7 +536,7 @@ const AffiliateHealthSalesPage = async (props: {
       </div>
     </Card>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-4 hover:border-transparent rounded-2xl shadow-lg mt-12 hover:bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">
       {/* Left Image Section */}
       <div className="rounded-2xl">
         <div className="flex-shrink-0">
@@ -570,7 +570,7 @@ const AffiliateHealthSalesPage = async (props: {
       YOU DESERVE <span className="underline">STRONGER</span> IMMUNITY
     </h2>
 
-    <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white hover:border-yellow-400 border-2 border-transparent rounded-b-2xl rounded-t-none shadow-lg ">
+    <Card className="flex flex-col md:flex-row gap-4 p-6  hover:border-yellow-400 border-2 border-transparent rounded-b-2xl rounded-t-none shadow-lg ">
         {/* Left Image Section */}
         <div className="rounded-2xl">
           <div className="flex-shrink-0">
@@ -671,7 +671,7 @@ const AffiliateHealthSalesPage = async (props: {
         Just follow these 3 easy steps:
       </p>
 
-      <Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
+      <Card className="flex flex-col md:flex-row gap-4 p-6 border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
   {/* Left Description Section */}
   <CardContent className="flex flex-col justify-center text-center md:text-left">
     <h3 className="text-2xl font-bold mb-4 uppercase">Step No. 1</h3>
@@ -690,7 +690,7 @@ const AffiliateHealthSalesPage = async (props: {
 
 </Card>
 
-<Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
+<Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
   {/* Left Image Section */}
       <Image
         src="/images/step-2.png"
@@ -709,7 +709,7 @@ const AffiliateHealthSalesPage = async (props: {
   </CardContent>
 </Card>
 
-<Card className="flex flex-col md:flex-row gap-4 p-6 bg-white border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
+<Card className="flex flex-col md:flex-row gap-4 p-6  border-yellow-400 border-2 hover:border-transparent rounded-2xl shadow-lg mt-12 ">
   {/* Left Description Section */}
   <CardContent className="flex flex-col justify-center text-center md:text-left">
     <h3 className="text-2xl font-bold mb-4 uppercase">Step No. 3</h3>
@@ -765,9 +765,19 @@ const AffiliateHealthSalesPage = async (props: {
         </ol>
         </div>
 
+        <div className="relative rounded-lg group flex justify-center items-center mt-4 shadow-lg">
+      <Image
+        src="/images/orders.png"
+        alt="We deliver orders via J&T Express & DHL Express"
+        width={900}
+        height={900}
+        className="object-cover rounded-lg filter dark:grayscale dark:opacity-75 dark:hover:opacity-100 dark:group-hover:grayscale-0 transition-all duration-300"
+      />
+      </div>
+
         <h2 className='text-4xl md:text-5xl font-bold text-center mt-16'>Frequently Asked Questions</h2>
         <FrequentlyAskedQuestions />
-
+      
 
         {/* AFFILIATE LINK */}
         <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl z-50">
@@ -786,12 +796,12 @@ const AffiliateHealthSalesPage = async (props: {
 
       </div>
 
-      <footer className="bg-yellow-100 p-4 text-sm text-center mx-auto w-full mt-24 pb-36 rounded">
+      <footer className="bg-yellow-100 dark:bg-neutral-600  p-4 text-sm text-center mx-auto w-full mt-24 pb-36 rounded">
         <p className="max-w-3xl text-center justify-center mx-auto pt-12">
-          <span className='font-bold text-yellow-500'>**</span>
+          <span className='font-bold text-yellow-500 dark:text-neutral-500'>**</span>
           These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. 
           Please consult your healthcare provider before starting any dietary supplement, especially if you are pregnant, nursing, or have a pre-existing medical condition.
-          <span className='font-bold text-yellow-500'>**</span>
+          <span className='font-bold text-yellow-500 dark:text-neutral-500'>**</span>
         </p>
         <p className="mt-12 mb-36">© 2023 - 2025 iGift®. All Rights Reserved.</p>
       </footer>
