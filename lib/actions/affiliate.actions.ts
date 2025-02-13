@@ -70,5 +70,12 @@ export async function getShareServiceById() {
   export async function getAffiliateLinkByReferralCode(referralCode: string) {
     return await prisma.affiliate.findFirst({
         where: {referralCode: referralCode},
+        include: {
+            user: {
+              select: {
+                name: true,
+              },
+            },
+          },
     });
   }

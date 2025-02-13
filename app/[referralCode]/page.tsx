@@ -48,6 +48,8 @@ const AffiliateHealthSalesPage = async (props: {
       const updatedUsersCount = summary.usersCount + 1503;
 
 
+
+
     return ( <>
      <div className="flex flex-col justify-start min-h-screen  p-6 text-center">
       {/* Gold Line */}
@@ -69,15 +71,18 @@ const AffiliateHealthSalesPage = async (props: {
       <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-5xl mx-auto my-4">
        Tired, Unhappy, <br /> and Always Getting Sick?
       </h1>
-      <p className="text-destructive mb-8 max-w-5xl mx-auto italic text-lg">
-        Discover how to break free from feeling weak, drained, and constantly worried about getting sick.
+      <p className="text-destructive mb-8 max-w-5xl mx-auto italic text-2xl">
+      See how <span className="font-bold">{formatNumber(updatedUsersCount)}</span> people found a way to feel better and stronger.
       </p>
 
       {/* BODY SECTION*/}
       <div className="text-left mx-auto max-w-full sm:max-w-3xl">
       <p className="text-xl md:text-lg mt-12">Hi Friend👋,</p>
           <p className="text-xl md:text-lg mt-12">
-              If you&apos;re always busy, juggling work and life, and feeling like 
+          My name is <span className="font-bold italic">{referral.user.name}</span>, and I know exactly how it feels.
+          </p>
+          <p className="text-xl md:text-lg mt-4">
+          If you&apos;re always busy, juggling work and life, and feeling like 
               you&apos;re just one bad day away from getting sick, you&apos;re not alone.<br />
               
           </p>
