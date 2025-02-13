@@ -45,3 +45,7 @@ export type Affiliate = z.infer<typeof insertAffiliateLinkSchema> & {
     createdAt: Date;
     user?: {name: string};
 };
+
+export type YouTubeEmbedProps = {
+    videoId: string;
+  };

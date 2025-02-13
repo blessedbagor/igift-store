@@ -10,6 +10,7 @@ import LatestFiveStarReviews from "@/components/shared/sales-page/get-all-5-star
 import FrequentlyAskedQuestions from "@/components/shared/sales-page/faqs";
 import { getOrderSummary } from "@/lib/actions/order.actions";
 import { formatNumber } from '@/lib/utils';
+import YouTubeEmbed from "@/components/shared/sales-page/youtube-embed";
 
 export const metadata: Metadata = {
   title: 'Tired Unhappy and Always Getting Sick?',
@@ -235,6 +236,9 @@ const AffiliateHealthSalesPage = async (props: {
       <p>This powerful blend boosts your immune system, supports digestive health, reduces inflammation, and enhances your overall well-being so you can face each day with confidence.*</p>
       <p>When your immune system is strong, you feel unstoppable, ready to take on whatever comes your way.</p>
       <p>You&apos;re healthier, more energized, and focused on your goals.</p>
+      <div className="my-8 items-center justify-items-center">
+        <YouTubeEmbed videoId="ELjVatLiIMM" />
+      </div>
       <p>But if your immunity is weak, you&apos;ll likely feel drained, run-down, and constantly at risk of getting sick.</p>
       <p>And we all know how that feels—fatigue sets in, and even the smallest setback can leave you feeling overwhelmed.</p>
       <div className="relative rounded-lg group flex justify-center items-center mt-8">
