@@ -98,7 +98,7 @@ const DealCountdown = () => {
 const StatBox = ({ label, value }: { label: string; value: number }) => (
   <li className="p-4  rounded-2xl shadow-md text-center">
     <p className="text-4xl font-extrabold">{value}</p>
-    <p className="text-lg">{label}</p>
+    <p className="md:text-lg text-sm">{label}</p>
   </li>
 );
 
