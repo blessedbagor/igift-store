@@ -1,5 +1,10 @@
+import { Metadata } from "next";
 import ShareList from "./share-list";
 import { auth } from "@/auth";
+
+export const metadata: Metadata = {
+    title: 'Share Service',
+};
 
 const SharePage = async() => {
     const session = await auth();

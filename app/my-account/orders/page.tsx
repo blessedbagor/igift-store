@@ -18,7 +18,7 @@ import { Eye, Frown } from "lucide-react";
 import Pagination from "@/components/shared/pagination";
 
 export const metadata: Metadata = {
-    title: 'My Orders',
+    title: 'Orders',
 };
 
 const MyAccountOrderPage = async (props: {

@@ -66,10 +66,11 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <Button onClick={handleOpenForm} variant="default">
+    <>
+    <Button onClick={handleOpenForm} variant="default">
         Setup Share Service
-      </Button>
+    </Button>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[425px] p-4">
         <Form {...form}>
           <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
@@ -118,6 +119,7 @@ const ShareForm = ({ userId, onAffiliateLinkSubmitted }: { userId: string; onAff
         </Form>
       </DialogContent>
     </Dialog>
+    </>
   );
 };
 

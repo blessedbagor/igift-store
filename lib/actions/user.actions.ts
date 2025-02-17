@@ -1,6 +1,12 @@
 'use server';
 
-import {paymentMethodSchema, shippingAddressSchema, signInFormSchema, signUpFormSchema, updateMemberSchema} from '@/lib/validators';
+import {
+    paymentMethodSchema, 
+    shippingAddressSchema, 
+    signInFormSchema, 
+    signUpFormSchema, 
+    updateMemberSchema
+} from '@/lib/validators';
 import {auth, signIn, signOut} from '@/auth';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import {hashSync} from "bcrypt-ts-edge";
@@ -10,6 +16,7 @@ import { ShippingAddress } from '@/types';
 import {z} from 'zod';
 import { PAGE_SIZE } from '../constants';
 import { revalidatePath } from 'next/cache';
+import { getMyCart } from './cart.actions';
 
 
 // Sign in the user with credentials
@@ -35,8 +42,11 @@ formData: FormData ) {
 
 // Sign user out
 export async function signOutUser() {
+    // get current users cart and delete it so it does not persist to next user
+    const currentCart = await getMyCart();
+    await prisma.cart.delete({ where: { id: currentCart?.id } });
     await signOut();
-}
+  }
 
 // Sign up a user
 export async function signUpUser(prevState: unknown, formData: FormData) {
