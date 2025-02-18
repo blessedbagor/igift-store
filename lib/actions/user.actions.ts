@@ -40,13 +40,18 @@ formData: FormData ) {
     return {success: false, message: 'Invalid email or password'}
 }
 
-// Sign user out
 export async function signOutUser() {
-    // get current users cart and delete it so it does not persist to next user
     const currentCart = await getMyCart();
-    await prisma.cart.delete({ where: { id: currentCart?.id } });
+    
+    // Ensure the current cart exists before attempting to delete it
+    if (currentCart?.id) {
+      await prisma.cart.delete({ where: { id: currentCart.id } });
+    }
+  
+    // Proceed with the sign-out process
     await signOut();
   }
+  
 
 // Sign up a user
 export async function signUpUser(prevState: unknown, formData: FormData) {
