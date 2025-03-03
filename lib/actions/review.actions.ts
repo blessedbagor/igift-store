@@ -128,6 +128,25 @@ export async function getAllLatestFiveStarReviews() {
     return {data};
 }
 
+//Get all five star reviews
+export async function getAllLatestReviews() {
+    const data = await prisma.review.findMany({
+        take: 12,
+        include: {
+            user: {
+                select: {
+                    name: true,
+                }
+            }
+        },
+        orderBy: {
+            createdAt: 'desc'
+        },
+    });
+
+    return {data};
+}
+
 // Get all reviews with their ratings to calculate the average and count
 export async function getReviewStats() {
     const data = await prisma.review.findMany({

@@ -6,22 +6,23 @@ import { Product } from "@/types";
 import Rating from "./rating";
 
 const ProductCard = ({product}:{product: Product}) => {
-    return (<Card className="w-full max-w-sm border">
+    return (
+    <Card className="w-full max-w-sm border">
         <CardHeader className="p-0 items-center">
             <Link href={`/product/${product.slug}`}>
             <Image 
             src={product.images [0]} 
             alt={product.name} 
-            height={300} 
-            width={300} 
+            height={400} 
+            width={400} 
             priority={true}
-            className="rounded-t-md w-full h-auto object-cover" 
+            className="rounded-t-xl w-full h-auto object-cover" 
             />
             </Link>
         </CardHeader>
         <CardContent className="p-4 grid gap-4">
             <Link href={`/product/${product.slug}`}>
-            <h2 className="text-sm font-medium">{product.name}</h2>
+            <h2 className="text-lg font-bold font-sans uppercase">{product.name}</h2>
             </Link>
             <div className="flex-between gap-4">
                <Rating value={Number(product.rating)} />
@@ -32,7 +33,8 @@ const ProductCard = ({product}:{product: Product}) => {
                )}
             </div>
         </CardContent>
-    </Card>);
+    </Card>
+    );
 }
  
 export default ProductCard;

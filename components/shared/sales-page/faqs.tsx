@@ -3,7 +3,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 export default function FrequentlyAskedQuestions() {
   const faqs = [
     {
-      question: "Can I take Immuno Boost Advance+ if I’m on blood-thinning medication?",
+      question: "Can I take Immuno Boost Advance+ if I'm on blood-thinning medication?",
       answer: "Our product is not recommended for people taking blood-thinning medications like Warfarin or dietary supplements containing blood-thinning ingredients such as Gingko Biloba and Garlic. If you wish to use both, it’s best to alternate—take Immuno Boost Advance+ in the morning and your blood-thinning supplements at night. Always consult your doctor before combining supplements.",
     },
     {
@@ -28,7 +28,7 @@ export default function FrequentlyAskedQuestions() {
     },
     {
       question: "Who can benefit from this product?",
-      answer: "It’s ideal for busy professionals, breadwinners, and anyone who wants to stay energized and healthy while managing daily responsibilities.",
+      answer: "It's ideal for busy professionals, breadwinners, and anyone who wants to stay energized and healthy while managing daily responsibilities.",
     },
     {
       question: "Are there any side effects?",
@@ -57,7 +57,7 @@ export default function FrequentlyAskedQuestions() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 shadow-lg rounded-xl text-xl md:text-lg mt-12">
+    <div className="max-w-6xl mx-auto items-center my-10 p-6 shadow-lg rounded-xl text-xl md:text-lg mt-12">
   <Accordion type="single" collapsible className="space-y-4">
     {faqs.map((faq, index) => (
       <AccordionItem key={index} value={`item-${index}`}>

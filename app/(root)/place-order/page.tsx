@@ -36,7 +36,7 @@ const PlaceOrderPage = async () => {
 
     return ( <>
     <CheckoutSteps current={3} />
-        <h1 className="py-4 text-3xl font-bold">Place Order</h1>
+        <h1 className="pb-4 pt-20 text-3xl font-bold">Place Order</h1>
         <div className="grid md:grid-cols-3 md:gap-5">
             <div className="md:col-span-2 overflow-x-auto space-y-4">
                 <Card>

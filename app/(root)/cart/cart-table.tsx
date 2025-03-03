@@ -30,7 +30,7 @@ const CartTable = ({cart}: {cart?: Cart}) => {
 
     return (  
         <>
-            <h1 className="py-4 h2-bold">Cart</h1>
+            <h1 className="pt-20 pb-4 h2-bold">Cart</h1>
             {!cart || cart.items.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center gap-2">
                     <Frown size={128} strokeWidth={1.25} className=" text-gray-400" />

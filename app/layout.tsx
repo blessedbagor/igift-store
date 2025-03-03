@@ -1,12 +1,11 @@
 import { Metadata } from "next";
-import {Geist} from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import '@/assets/styles/global.css';
 import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleAnalytics } from '@next/third-parties/google';
-
-const geist = Geist({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: `${APP_NAME}`,
@@ -22,11 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <>
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.className}`}>
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
         <ThemeProvider
         attribute="class"
-        defaultTheme="light"
+        defaultTheme="dark"
         enableSystem
         disableTransitionOnChange
         >

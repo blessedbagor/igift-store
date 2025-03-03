@@ -10,7 +10,7 @@ import { z } from 'zod';
 export async function getLatestProducts() {
     const data = await prisma.product.findMany({
         take: LATEST_PRODUCTS_LIMIT,
-        orderBy: { createdAt: 'desc' },
+        orderBy: { createdAt: 'asc' },
     });
 
     // Normalize the rating field to ensure it's a number

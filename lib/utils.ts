@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import qs from 'query-string';
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 // Convert prisma object into a regular JS object

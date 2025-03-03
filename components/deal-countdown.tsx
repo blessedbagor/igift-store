@@ -68,9 +68,9 @@ const DealCountdown = () => {
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 my-20">
+    <section className="grid grid-cols-1 md:grid-cols-2 my-40 max-w-5xl mx-auto">
       <div className="flex flex-col gap-4 justify-center">
-      <h3 className="text-3xl font-bold text-center md:text-left">First Asian Travel to Da Nang, Vietnam</h3>
+      <h3 className="text-3xl font-bold text-center md:text-left">First Asian Travel to Da Nang, Vietnam🎉</h3>
         <p className="text-lg">
         We are excited to announce that our first Asian 
         travel qualification has been extended until March 31, 2025, 
@@ -79,8 +79,8 @@ const DealCountdown = () => {
         <ul className="grid grid-cols-4 gap-4 my-4">
           <StatBox label="Days" value={time.days} />
           <StatBox label="Hours" value={time.hours} />
-          <StatBox label="Minutes" value={time.minutes} />
-          <StatBox label="Seconds" value={time.seconds} />
+          <StatBox label="Min." value={time.minutes} />
+          <StatBox label="Sec." value={time.seconds} />
         </ul>
         <div className="text-center">
           <Button asChild>
@@ -97,8 +97,8 @@ const DealCountdown = () => {
 };
 
 const StatBox = ({ label, value }: { label: string; value: number }) => (
-  <li className="p-4  rounded-2xl shadow-md text-center">
-    <p className="text-4xl font-extrabold">{value}</p>
+  <li className="p-4  rounded-2xl shadow-md text-center border border-gold">
+    <p className="lg:text-4xl text-2xl font-extrabold text-gold">{value}</p>
     <p className="md:text-lg text-sm">{label}</p>
   </li>
 );

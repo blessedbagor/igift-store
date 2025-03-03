@@ -1,11 +1,17 @@
-import { getLatestProducts, getFeaturedProducts } from "@/lib/actions/product.actions";
-import ProductList from "@/components/shared/product/product-list";
-import ProductCarousel from "@/components/shared/product/product-carousel";
-import IconBoxes from "@/components/icon-boxes";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+
+import { Benefits } from "@/components/tangible-benefits-box";
 import DealCountdown from "@/components/deal-countdown";
 import { Metadata } from "next";
+import { HeroSection } from "@/components/shared/home/hero-section";
+import { ProblemSection } from "@/components/shared/home/problem-section";
+import { ProblemAgitateSection } from "@/components/shared/home/problem-agitate-section";
+import { SolutionSection } from "@/components/shared/home/solution-section";
+import { SocialProofSection } from "@/components/shared/home/social-proof-section";
+import { CompanySection } from "@/components/shared/home/company-section";
+import {FeaturesSection} from "@/components/shared/home/features-section";
+import PackageSection from "@/components/shared/home/choose-package-section";
+import FrequentlyAskedQuestions from "@/components/shared/sales-page/faqs";
+import { HoverBottomSection } from "@/components/shared/home/hover-bottom-section";
 
 export const metadata: Metadata = {
   title: 'iGift | Your Best Life',
@@ -28,32 +34,24 @@ export const metadata: Metadata = {
 }
 
 const Homepage = async () => {
-const latestProducts = await getLatestProducts();
-const featuredProducts = await getFeaturedProducts();
-
   return ( 
-  
   <>
-  
-  {featuredProducts.length > 0 && <ProductCarousel data={featuredProducts} />}
-  
-  <ProductList 
-  data={latestProducts} 
-  title="Popular Packages"
-  limit={4}
-   />
-   <div className='text-center mb-4'>
-   <Link href='/shop'>
-   <Button variant='default'>View All Packages</Button>
-   </Link>
+  <HeroSection />
+  <div className='w-full mx-auto px-12 dark:bg-black antialiased dark:bg-grid-white/[0.03] overflow-hidden space-y-8 pt-4'>
+  <Benefits />
+  <ProblemSection />
+  <ProblemAgitateSection />
+  <SolutionSection />
+  <SocialProofSection />
+  <CompanySection />
+  <FeaturesSection />
+  <PackageSection />
+  <DealCountdown />
+  <div className='max-w-5xl text-6xl font-bold mx-auto text-center mt-40'>Frequently Asked Questions</div>
+  <FrequentlyAskedQuestions />
+  <HoverBottomSection />
    </div>
-
-   <IconBoxes />
-   
-   <DealCountdown />
-   
   </> 
-  
   );
 }
  
