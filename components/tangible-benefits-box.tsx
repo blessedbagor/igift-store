@@ -31,7 +31,7 @@ export function Benefits() {
     area="md:[grid-area:auto] xl:[grid-area:auto]"
     icon={<Zap className="h-12 w-12 text-black dark:text-gold" />}
     title="Daily Payouts"
-    description="No minimum withdrawal."
+    description="$1 Minimum Withdrawal"
   />
 </ul>
 
