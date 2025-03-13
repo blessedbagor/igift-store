@@ -49,3 +49,13 @@ export type Affiliate = z.infer<typeof insertAffiliateLinkSchema> & {
 export type YouTubeEmbedProps = {
     videoId: string;
   };
+
+  export type Store = {
+    id: number;
+    name: string;
+    address: string;
+    mobile: string;
+    officeHours: string;
+    businessDays: string;
+    coordinates: [number, number];
+  };

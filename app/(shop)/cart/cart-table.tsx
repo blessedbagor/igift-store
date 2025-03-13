@@ -30,9 +30,9 @@ const CartTable = ({cart}: {cart?: Cart}) => {
 
     return (  
         <>
-            <h1 className="pt-20 pb-4 h2-bold">Cart</h1>
+            <h1 className="pt-12 pb-4 h2-bold mx-auto max-w-5xl">Cart</h1>
             {!cart || cart.items.length === 0 ? (
-                <div className="flex h-full flex-col items-center justify-center gap-2">
+                <div className="flex h-screen flex-col items-center justify-center gap-2">
                     <Frown size={128} strokeWidth={1.25} className=" text-gray-400" />
                     <h2 className="text-xl font-semibold">Cart is empty</h2>
                     <Link
@@ -43,8 +43,8 @@ const CartTable = ({cart}: {cart?: Cart}) => {
                     </Link>
                 </div>
             ) : (
-             <div className="grid md:grid-cols-4 md:gap-5">
-                <div className="overflow-x-auto md:col-span-3">
+             <div className="grid md:grid-cols-4 md:gap-5 max-w-5xl mx-auto">
+                <div className="overflow-x-auto md:col-span-3 py-4">
                     <Table>
                         <TableHeader>
                             <TableRow>

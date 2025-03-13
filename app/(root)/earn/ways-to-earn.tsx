@@ -207,112 +207,136 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Lana Del Rey",
-    title: "Summertime Sadness",
+    description: "Earn up to 46.667% bonus.",
+    title: "Direct Selling Bonus",
     src: "/earn/1.png",
     ctaText: "Learn More",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=rVvg6DEM3MM-H-Mr&t=3860",
     content: () => {
       return (
         <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          her melancholic and cinematic music style. Born Elizabeth Woolridge
-          Grant in New York City, she has captivated audiences worldwide with
-          her haunting voice and introspective lyrics. <br /> <br /> Her songs
-          often explore themes of tragic romance, glamour, and melancholia,
-          drawing inspiration from both contemporary and vintage pop culture.
-          With a career that has seen numerous critically acclaimed albums, Lana
-          Del Rey has established herself as a unique and influential figure in
-          the music industry, earning a dedicated fan base and numerous
-          accolades.
+          With iGift's Direct Selling Bonus, you earn a fixed profit from every sale. 
+          A Family Size Immuno Boost Advance+ costs $16 for distributors and sells for $30, 
+          giving a $14 profit per bottle. Selling 10 bottles a day earns $140 (₱7,840).
         </p>
       );
     },
   },
   {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
+    description: "Earn from $5 to $20 bonus.",
+    title: "Direct Referral Bonus",
     src: "/earn/2.png",
     ctaText: "Learn More",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=z_QL2Xb8qtdQoY6L&t=4027",
     content: () => {
       return (
         <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. Born
-          in the village of Khant Maanpur in Punjab, India, he has become a
-          cultural icon in the Punjabi music industry. <br /> <br /> His songs
-          often reflect the struggles and triumphs of everyday life, capturing
-          the essence of Punjabi culture and traditions. With a career spanning
-          over two decades, Babu Maan has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
+          Earn by helping others save on product packages! 
+          Get $5 for a Bronze Package, $10 for a Silver Package, and $20 for a Gold Package. 
         </p>
       );
     },
   },
 
   {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
+    description: "Earn 10% bonus up to 10th level.",
+    title: "Unilevel Indirect Referral Bonus",
     src: "/earn/3.png",
     ctaText: "Learn More",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=zetO1xnkcGbGrPnh&t=4270",
     content: () => {
       return (
         <p>
-          Metallica, an iconic American heavy metal band, is renowned for their
-          powerful sound and intense performances that resonate deeply with
-          their audience. Formed in Los Angeles, California, they have become a
-          cultural icon in the heavy metal music industry. <br /> <br /> Their
-          songs often reflect themes of aggression, social issues, and personal
-          struggles, capturing the essence of the heavy metal genre. With a
-          career spanning over four decades, Metallica has released numerous hit
-          albums and singles that have garnered them a massive fan following
-          both in the United States and abroad.
+          With the Indirect Referral Bonus, you earn 10% of your downline's Direct Referral Bonus 
+          without reducing their earnings. 
+          Bronze earns up to 5 levels deep, Silver up to 7 levels, 
+          and Gold up to 10 levels. 
         </p>
       );
     },
   },
   {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
+    description: "Earn $8-$32 bonus.",
+    title: "Sales Match Bonus",
     src: "/earn/4.png",
     ctaText: "Learn More",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=KPDrekkHjGz_F96O&t=4709",
     content: () => {
       return (
         <p>
-          Led Zeppelin, a legendary British rock band, is renowned for their
-          innovative sound and profound impact on the music industry. Formed in
-          London in 1968, they have become a cultural icon in the rock music
-          world. <br /> <br /> Their songs often reflect a blend of blues, hard
-          rock, and folk music, capturing the essence of the 1970s rock era.
-          With a career spanning over a decade, Led Zeppelin has released
-          numerous hit albums and singles that have garnered them a massive fan
-          following both in the United Kingdom and abroad.
+          The Sales Match Bonus pays $8 for every 45PV 
+          matched on both your left and right sales teams. 
+          Bronze earns up to 8 pairs daily ($64), 
+          Silver up to 16 pairs ($128), 
+          and Gold up to 32 pairs ($256).
         </p>
       );
     },
   },
   {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
+    description: "Earn 10% bonus.",
+    title: "Royalty Sales Match Bonus",
     src: "/earn/5.png",
     ctaText: "Learn More",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=bBqcDUDYmkoZjgJ6&t=4980",
     content: () => {
       return (
         <p>
-          &quot;Aawarapan&quot;, a Bollywood movie starring Emraan Hashmi, is
-          renowned for its intense storyline and powerful performances. Directed
-          by Mohit Suri, the film has become a significant work in the Indian
-          film industry. <br /> <br /> The movie explores themes of love,
-          redemption, and sacrifice, capturing the essence of human emotions and
-          relationships. With a gripping narrative and memorable music,
-          &quot;Aawarapan&quot; has garnered a massive fan following both in
-          India and abroad, solidifying Emraan Hashmi&apos;s status as a
-          versatile actor.
+          The Royalty Sales Match Bonus gives you a 10% bonus 
+          from the Sales Match Bonus earned by your personally sponsored downlines. 
+        </p>
+      );
+    },
+  },
+  {
+    description: "Earn Point Value from retail sales.",
+    title: "Redundant Binary Bonus ",
+    src: "/earn/6.png",
+    ctaText: "Learn More",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=oLjOcbzUIIt19KLV&t=5209",
+    content: () => {
+      return (
+        <p>
+          The Redundant Binary Bonus allows you to earn from PV generated 
+          by retail product purchases within your sales organization. 
+          Once you accumulate 45PV on the left and 45PV on the right, 
+          whether from package sales or retail purchases, 
+          you earn an $8 bonus per pair.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Earn 1,260PV left and right to qualify.",
+    title: "Leadership Profit Sharing Bonus",
+    src: "/earn/7.png",
+    ctaText: "Learn More",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=bYQVVQLJBsqfkwOj&t=6496",
+    content: () => {
+      return (
+        <p>
+          The Leadership Profit Sharing Bonus is for Gold Account Holders who earn 
+          1,260PV on both left and right teams to reach 1-Star Rank, with ranks going up to 10-Star. 
+          To advance, you must also help your directly sponsored members rank up, 
+          promoting teamwork and shared success.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Design for students or livelihood organizations.",
+    title: "Affiliate Matrix Program Bonus",
+    src: "/earn/8.png",
+    ctaText: "Learn More",
+    ctaLink: "https://youtu.be/xOD-tN3MShM?si=otOEiaN2uxisQDA5&t=5548",
+    content: () => {
+      return (
+        <p>
+          The Affiliate Matrix Program Bonus is designed to help students, 
+          livelihood organizations, and individuals who can only 
+          afford a $12 bottle of Immuno Boost for personal use. 
+          This program provides an opportunity to earn and uplift 
+          themselves through effort and participation.
         </p>
       );
     },

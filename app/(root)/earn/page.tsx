@@ -35,9 +35,10 @@ const Homepage = async () => {
   <div className='w-full mx-auto px-12 dark:bg-black antialiased dark:bg-grid-white/[0.03] overflow-hidden space-y-8 pt-4'>
   <WaysToEarn />
   <Benefits />
- 
-  <SocialProofSection />
+  <div className="mt-20">
   <DealCountdown />
+  </div>
+  <SocialProofSection />
   <div className='max-w-5xl text-6xl font-bold mx-auto text-center mt-40'>
     Frequently Asked Questions
   </div>

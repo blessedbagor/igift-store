@@ -10,28 +10,28 @@ export function Benefits() {
     area="md:[grid-area:auto] xl:[grid-area:auto]"
     icon={<Truck className="h-12 w-12 text-black dark:text-gold" />}
     title="Free Shipping"
-    description="Free shipping on orders $75 & above."
+    description="Free shipping on orders of $75 or more."
   />
 
   <GridItem
     area="md:[grid-area:auto] xl:[grid-area:auto]"
     icon={<DollarSign className="h-12 w-12 text-black dark:text-gold" />}
     title="Earn Rewards"
-    description="Enjoy up to 8 ways to earn."
+    description="Earn through 8 income streams."
   />
 
   <GridItem
     area="md:[grid-area:auto] xl:[grid-area:auto]"
     icon={<WalletCardsIcon className="h-12 w-12 text-black dark:text-gold" />}
     title="Flexible Payments"
-    description="Pay via GCash, USDT or Banks."
+    description="Get paid via GCash, USDT or Bank Transfer."
   />
 
   <GridItem
     area="md:[grid-area:auto] xl:[grid-area:auto]"
     icon={<Zap className="h-12 w-12 text-black dark:text-gold" />}
     title="Daily Payouts"
-    description="$1 Minimum Withdrawal"
+    description="Withdraw as little as $1.00 daily."
   />
 </ul>
 
