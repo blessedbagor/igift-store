@@ -4,7 +4,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
-export function WaysToEarn() {
+export function EventsList() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
@@ -79,10 +79,10 @@ export function WaysToEarn() {
             {active.title}
           </motion.h3>
           <motion.p
-            layoutId={`description-${active.description}-${id}`}
+            layoutId={`day-${active.day}-${id}`}
             className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base"
           >
-            {active.description}
+            {active.day}
           </motion.p>
           <motion.a
             layoutId={`button-${active.title}-${id}`}
@@ -134,10 +134,10 @@ export function WaysToEarn() {
             {card.title}
           </motion.h3>
           <motion.p
-            layoutId={`description-${card.description}-${id}`}
+            layoutId={`day-${card.day}-${id}`}
             className="text-neutral-600 dark:text-neutral-400 text-xs sm:text-sm"
           >
-            {card.description}
+            {card.day}
           </motion.p>
         </div>
       </div>
@@ -189,10 +189,10 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Earn up to 46.667% bonus.",
-    title: "Direct Selling Bonus",
+    day: "Every Sunday, 9:00 AM (PHT).",
+    title: "Director's Night",
     src: "/earn/1.png",
-    ctaText: "Learn More",
+    ctaText: "Join Now",
     ctaLink: "https://youtu.be/xOD-tN3MShM?si=rVvg6DEM3MM-H-Mr&t=3860",
     content: () => {
       return (
@@ -205,7 +205,7 @@ const cards = [
     },
   },
   {
-    description: "Earn from $5 to $20 bonus.",
+    day: "Earn from $5 to $20 bonus.",
     title: "Direct Referral Bonus",
     src: "/earn/2.png",
     ctaText: "Learn More",
@@ -221,7 +221,7 @@ const cards = [
   },
 
   {
-    description: "Earn 10% bonus up to 10th level.",
+    day: "Earn 10% bonus up to 10th level.",
     title: "Unilevel Indirect Referral Bonus",
     src: "/earn/3.png",
     ctaText: "Learn More",
@@ -238,7 +238,7 @@ const cards = [
     },
   },
   {
-    description: "Earn $8-$32 bonus.",
+    day: "Earn $8-$32 bonus.",
     title: "Sales Match Bonus",
     src: "/earn/4.png",
     ctaText: "Learn More",
@@ -256,7 +256,7 @@ const cards = [
     },
   },
   {
-    description: "Earn 10% bonus.",
+    day: "Earn 10% bonus.",
     title: "Royalty Sales Match Bonus",
     src: "/earn/5.png",
     ctaText: "Learn More",
@@ -271,7 +271,7 @@ const cards = [
     },
   },
   {
-    description: "Earn Point Value from retail sales.",
+    day: "Earn Point Value from retail sales.",
     title: "Redundant Binary Bonus ",
     src: "/earn/6.png",
     ctaText: "Learn More",
@@ -289,7 +289,7 @@ const cards = [
     },
   },
   {
-    description: "Earn 1,260PV left and right to qualify.",
+    day: "Earn 1,260PV left and right to qualify.",
     title: "Leadership Profit Sharing Bonus",
     src: "/earn/7.png",
     ctaText: "Learn More",
@@ -306,7 +306,7 @@ const cards = [
     },
   },
   {
-    description: "Design for students or livelihood organizations.",
+    day: "Design for students or livelihood organizations.",
     title: "Affiliate Matrix Program Bonus",
     src: "/earn/8.png",
     ctaText: "Learn More",

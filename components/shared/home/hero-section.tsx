@@ -5,7 +5,8 @@ import { FlipWords } from "@/components/ui/flip-words";
 import Link from "next/link";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { ChevronRight } from "lucide-react";
-import AnnouncementButton from "../announcement-button";
+import { AnnouncementButton } from "../announcement-button";
+
 
 export function HeroSection() {
   const words = ["Live Their Best Life.", "Help Themselves.", "Feel Better.", "Move Forward."];
@@ -18,9 +19,7 @@ export function HeroSection() {
       {/* Text Content */}
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-40 pb-60 md:pt-30">
         <div className="flex justify-center mb-8">
-          <span>
-            <AnnouncementButton />
-          </span>
+          <AnnouncementButton />
         </div>
         <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Helping People 
