@@ -103,7 +103,7 @@ export const FloatingNav = ({
             <SheetTrigger>
               <IconMenu />
             </SheetTrigger>
-            <SheetContent className="flex flex-col items-start z-[6000] w-full">
+            <SheetContent className="flex flex-col items-start z-[6000] w-[90]">
               <SheetTitle>
                 <Link href="/" className="flex items-center">
                   <Image 

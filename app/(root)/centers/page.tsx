@@ -99,11 +99,11 @@ const stores: Store[] = [
     { 
         id: 11, 
         name: "IGIFT UGANDA", 
-        address: "Kampala, Uganda", 
-        mobile: "09467546670",
+        address: "LUWUM STREET, MM PLAZA, 4TH FLOOR, R22, KAMPALA, UGANDA", 
+        mobile: "+256754794746",
         officeHours: "9:00 AM - 6:00 PM",
         businessDays: "Monday - Saturday",
-        coordinates: [0.31680551945249635, 32.57577535864757]
+        coordinates: [0.3124347570372278, 32.58106860935524]
       },
       { 
         id: 12, 

@@ -12,12 +12,12 @@ import { useEffect, useState } from "react";
 
 export function CompanySection() {
     const words = ["OFWs", "Doctors", "Health Enthusiasts",  "Senior Citizens", "Pharmacists",  "Entrepreneurs",  "Uniform Personnels", "Athletes", "IT Professionals", "Working Moms", "Network Builders", "Distributors", "Students", "Workers",  "Public Servants",];
-    const [updatedUsersCount, setUpdatedUsersCount] = useState(1561);
+    const [updatedUsersCount, setUpdatedUsersCount] = useState(2040);
   useEffect(() => {
     async function fetchSummary() {
       try {
         const summary = await getOrderSummary();
-        setUpdatedUsersCount(summary.usersCount + 1503);
+        setUpdatedUsersCount(summary.usersCount + 1947);
       } catch (error) {
         console.error("Failed to fetch order summary:", error);
       }
