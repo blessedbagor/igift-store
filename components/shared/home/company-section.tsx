@@ -17,7 +17,7 @@ export function CompanySection() {
     async function fetchSummary() {
       try {
         const summary = await getOrderSummary();
-        setUpdatedUsersCount(summary.usersCount + 1947);
+        setUpdatedUsersCount(summary.usersCount + 2040);
       } catch (error) {
         console.error("Failed to fetch order summary:", error);
       }
