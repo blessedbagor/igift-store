@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const TARGET_DATE = new Date("2025-04-01T00:00:00");
+const TARGET_DATE = new Date("2025-04-30T00:00:00");
 
 const calculateTimeRemaining = (targetDate: Date) => {
   const currentTime = new Date();
@@ -55,50 +55,49 @@ const DealCountdown = () => {
           <p>This deal is no longer available. Checkout our latest promotions!</p>
           <div className="text-center md:text-left">
             <Button asChild>
-              <Link href="/shop">View More Product Packages</Link>
+              <Link href="https://platform.igift.ph/shop">View More Product Packages</Link>
             </Button>
           </div>
         </div>
 
         <div className="flex justify-center my-4">
-          <Image src="/images/promo.png" alt="promo" width={450} height={450} className="rounded-lg"/>
+          <Image src="/images/soft-launching.png" alt="promo" width={450} height={450} className="rounded-lg"/>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 my-20">
+    <section className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 my-20">
       <div className="flex flex-col gap-4 justify-center">
-      <h3 className="text-3xl font-bold text-center md:text-left">First Asian Travel to Da Nang, Vietnam</h3>
+      <h3 className="text-3xl font-bold text-center md:text-left">iGift Iloilo Head Office Soft Launching Promo 🎉</h3>
         <p className="text-lg">
-        We are excited to announce that our first Asian 
-        travel qualification has been extended until March 31, 2025, 
-        to allow more iGift Distributors to qualify and join.
+        We are excited to announce that our soft launch will be on April 30, 2025! 
+        Our promo starts now—don&apos;t miss this exciting milestone!
         </p>
         <ul className="grid grid-cols-4 gap-4 my-4">
           <StatBox label="Days" value={time.days} />
           <StatBox label="Hours" value={time.hours} />
-          <StatBox label="Minutes" value={time.minutes} />
-          <StatBox label="Seconds" value={time.seconds} />
+          <StatBox label="Min" value={time.minutes} />
+          <StatBox label="Sec" value={time.seconds} />
         </ul>
         <div className="text-center">
           <Button asChild>
-            <Link href="https://learn.igift.com.ph/community/space/say-hello/post/qualification-for-the-a" target="_blank">View the Mecahnics</Link>
+            <Link href="https://learn.igift.com.ph/community/space/say-hello/post/igift-iloilo-head-office-soft" target="_blank">View the Mecahnics</Link>
           </Button>
         </div>
       </div>
 
       <div className="flex justify-center my-4">
-        <Image src="/images/travel-promo.png" alt="promo" width={450} height={450} className="rounded-lg" />
+        <Image src="/images/soft-launching.png" alt="promo" width={450} height={450} className="rounded-lg" />
       </div>
     </section>
   );
 };
 
 const StatBox = ({ label, value }: { label: string; value: number }) => (
-  <li className="p-4  rounded-2xl shadow-md text-center">
-    <p className="text-4xl font-extrabold">{value}</p>
+  <li className="p-4  rounded-2xl shadow-md dark:shadow-gold text-center">
+    <p className="md:text-4xl text-2xl font-extrabold">{value}</p>
     <p className="md:text-lg text-sm">{label}</p>
   </li>
 );

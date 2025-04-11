@@ -9,30 +9,24 @@ import {
 } from "@/components/ui/sheet";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import NavLink from "./nav-link";
 import { signOutUser } from "@/lib/actions/user.actions";
-import { PowerIcon } from "lucide-react";
+import { PowerIcon, Menu } from "lucide-react";
 
 const UserMobileMenu = async () => {
     const session = await auth();
 
     if (!session) redirect('/login');
 
-    const firstInitial = session.user?.name?.charAt(0).toUpperCase() ?? 'U';
+    // const firstInitial = session.user?.name?.charAt(0).toUpperCase() ?? 'U';
 
     return (
         <div className="flex justify-end gap-3">
             <nav>
                 <Sheet>
                     <SheetTrigger className="align-middle">
-                        <div className="flex items-center">
-                            <Button 
-                                variant="ghost" 
-                                className="relative w-12 h-12 rounded-full mx-2 flex items-center justify-center bg-yellow-500"
-                            >
-                                <p className="text-lg">{firstInitial}</p>
-                            </Button>
+                        <div className='text-gold'>
+                            <Menu />
                         </div>
                     </SheetTrigger>
                     <SheetContent className="flex flex-col items-start">
@@ -41,17 +35,17 @@ const UserMobileMenu = async () => {
                         </SheetHeader>
 
                         {/* User Info */}
-                        <div className="grid grid-cols-[auto_1fr] gap-2 mb-4 items-center">
+                        {/* <div className="grid grid-cols-[auto_1fr] gap-2 mb-4 items-center"> */}
                             {/* Column 1: Button */}
-                            <Button 
+                            {/* <Button 
                                 variant="ghost" 
                                 className="relative w-10 h-10 rounded-full flex items-center justify-center bg-yellow-500"
                             >
                                 <p className="text-lg">{firstInitial}</p>
-                            </Button>
+                            </Button> */}
 
                             {/* Column 2: Name & Email */}
-                            <div className="flex flex-col">
+                            {/* <div className="flex flex-col">
                                 <div className="text-sm font-medium leading-none">
                                     {session.user?.name}
                                 </div>
@@ -59,7 +53,7 @@ const UserMobileMenu = async () => {
                                     {session.user?.email}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <NavLink />
 
