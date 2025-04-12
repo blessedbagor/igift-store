@@ -45,7 +45,7 @@ const AffiliateHealthSalesPage = async (props: {
     const summary = await getOrderSummary();
 
       // Assuming summary contains usersCount
-      const updatedUsersCount = summary.usersCount + 1503;
+      const updatedUsersCount = summary.usersCount + 2040;
 
 
 
